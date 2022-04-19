@@ -1,0 +1,102 @@
+<!DOCTYPE html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注册</title>
+  <style>
+    .main {
+      padding-top: 50px;
+    }
+  </style>
+</head>
+
+<link rel="stylesheet" th:href="@{style.css}" href="../public/style.css">
+
+<link rel="stylesheet" th:href="@{style.css}" href="style.css">
+<body>
+<h2 class="main" style="text-align: center">欢迎加入智享网站</h2>
+<!-- ##### register Area Start ##### -->
+<div class="contact-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Contact Form Area -->
+      <div class="col-12 col-md-10 col-lg-9">
+        <div class="contact-form">
+          <h5>Get in Touch</h5>
+          <!-- Contact Form -->
+          <form action="/user-register" method="post">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="group">
+                  <input type="text" name="username" id="name" required>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Name</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="group">
+                  <input type="email" name="email" id="email" required>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Email</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="group">
+                  <input type="password" name="password" id="password" required>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Password</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="group">
+                  <input type="text" name="nickname" id="nickname" required>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Nickname</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="group">
+                  <textarea placeholder="个性签名可以稍后设置..." name="sign" id="sign"></textarea>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Sign</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn original-btn">注 册</button>
+                <button type="reset" class="btn original-btn">重 置</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- ##### register Area End ##### -->
+<footer style="text-align: center">
+Copyright &copy;&copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by neusoft catch
+</footer>
+</body>
+
+<!-- jQuery (Necessary for All JavaScript Plugins) -->
+<script th:src="@{js/jquery/jquery-2.2.4.min.js}" src="js/jquery/jquery-2.2.4.min.js"></script>
+
+<script th:src="@{js/popper.min.js}" src="js/popper.min.js"></script>
+
+<script th:src="@{js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+
+<script th:src="@{js/plugins.js}" src="js/plugins.js"></script>
+
+<script th:src="@{js/active.js}" src="js/active.js"></script>
+
+</html>

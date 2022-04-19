@@ -1,0 +1,10 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /ch
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

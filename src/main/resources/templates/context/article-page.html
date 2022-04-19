@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>~~~{title!}</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="~~~{settings.google_color!'#fff'}">
+    <meta name="author" content="~~~{user.nickname!}" />
+    <meta name="keywords" content="~~~{meta_keywords!}"/>
+    <meta name="description" content="~~~{meta_description!}" />
+
+    <link rel="stylesheet" href="source/css/font-awesome/font-awesome.min.css">
+    <link href="./source/css/blog_basic.min.css?version=88107691fe" rel="stylesheet">
+    <link href="./source/css/style.min.css" type="text/css" rel="stylesheet" />
+
+      <script type="text/javascript" src="source/js/prism.min.js"></script>
+      <script type="text/javascript" src="//cdn.jsdelivr.net/npm/prismjs@1.19.0/prism.min.js"></script>
+        <style>
+            table {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-top: 0;
+                margin-bottom: 16px;
+                display: block;
+                width: 100%;
+                overflow: auto;
+
+            }
+            table th {
+                font-weight: 600;
+            }
+            table th,
+            table td {
+                padding: 6px 13px;
+                border: 1px solid #dfe2e5;
+            }
+            table tr {
+                background-color: #fff;
+                border-top: 1px solid #c6cbd1;
+            }
+            table tr:nth-child(2n) {
+                background-color: #f6f8fa;
+            }
+        </style>
+
+    <link rel="alternate" type="application/rss+xml" title="atom 1.0" href="~~~{atom_url!}">
+    <style>
+        .post .post-title h3 {
+            text-transform: none;
+        }
+        .sidebar .logo-title .title h3 {
+            text-transform: none;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            background-color: #eee;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+</#macro>
+<#macro footer>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery@1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var url = location.href;
+    var urlstatus = false;
+    $(".nav li a").each(function () {
+        if ((url + '/').indexOf($(this).attr('href')) > -1 && $(this).attr('href') != '/') {
+            $(this).addClass('current');
+            urlstatus = true;
+        } else {
+            $(this).removeClass('current');
+        }
+    });
+    if (!urlstatus) {
+        $(".nav li a").eq(0).addClass('current');
+    }
+
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('get', 'https://v1.hitokoto.cn');
+	  xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+              var data = JSON.parse(xhr.responseText);
+              var yiyan = document.getElementById('yiyan');
+              yiyan.innerText = data.hitokoto+"        -「"+data.from+"」";
+          }
+      };
+	  xhr.send();
+</script>
+
+<!-- side bar  -->
+<div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+        <div class="title">
+            <img src="<#if blog_logo?? && blog_logo!=''>${blog_logo!}<#else>${user.avatar!}</#if>" style="width:127px;<#if settings.avatar_circle!true>border-radius:50%</#if>" />
+            <h3 title="">
+                <a href="${blog_url!}">${blog_title!}</a>
+            </h3>
+            <div class="description">
+                <#if settings.hitokoto!false>
+                    <p id="yiyan">获取中...</p>
+                <#else >
+                    <p>${user.description!}</p>
+                </#if>
+            </div>
+        </div>
+    </div>
+
+<!-- social-list.ftl -->
+<ul class="social-links">
+
+    <li>
+        <a target="_blank" href="${atom_url!}">
+            <i class="fa fa-rss"></i>
+        </a>
+    </li>
+
+    <li>
+        <a target="_blank" href="https://twitter.com/${settings.twitter}">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </li>
+
+    <li>
+        <a target="_blank" href="https://www.facebook.com/${settings.facebook}">
+            <i class="fa fa-facebook"></i>
+        </a>
+    </li>
+
+    <li>
+        <a target="_blank" href="https://www.instagram.com/${settings.instagram}">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </li>
+
+    <li>
+        <a target="_blank" href="https://dribbble.com/${settings.dribbble}">
+            <i class="fa fa-dribbble"></i>
+        </a>
+    </li>
+
+
+        <li>
+            <a target="_blank" href="tencent://message/?uin=${settings.qq}&Site=&Menu=yes">
+                <i class="fa fa-qq"></i>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="https://t.me/${settings.telegram}">
+                <i class="fa fa-telegram"></i>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="mailto:${settings.email}">
+                <i class="fa fa-envelope"></i>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="https://github.com/${settings.github}">
+                <i class="fa fa-github"></i>
+            </a>
+        </li>
+</ul>
+
+<!-- social-list over -->
+
+
+    <div class="footer">
+        <a target="_blank" href="#">
+            <!-- 不允许修改该主题信息，也不能删除。 -->
+            <span>Designed by </span>
+            <a href="https://www.caicai.me">CaiCai</a>
+            <div class="by_halo">
+                <a href="https://github.com/halo-dev/halo" target="_blank">Proudly published with Halo&#65281;</a>
+            </div>
+            <div class="footer_text">
+                <@global.footer_info />
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- side bar over -->
+
+
+<div class="main">
+
+
+ <!-- module/page-top.ftl -->
+<div class="page-top animated fadeInDown">
+    <div class="nav">
+        <!-- <@menuTag method="list">
+            <#list menus?sort_by('priority') as menu> -->
+                <li>
+                    <a href="${menu.url!}" target="${menu.target!}">${menu.name!} </a>
+                </li>
+            <!-- </#list>
+        </@menuTag> -->
+    </div>
+    <div class="information">
+        <div class="back_btn">
+            <li>
+                <a onclick="window.history.go(-1)" style="display: none" class="fa fa-chevron-left"></a>
+            </li>
+        </div>
+        <div class="avatar">
+            <img src="${settings.icon!'${user.avatar!}'}" />
+        </div>
+        <div class="searchbox">
+            <form method="get" action="/search" role="search">
+                <input class="searchtxt" type="search" name="keyword" placeholder="Search" required>
+                <a class="searchbtn" href="#"><i class="fa fa-search"></i></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+ <!-- page-top over -->
+    <div class="autopagerize_page_element">
+        <div class="content">
+            <div class="archive animated fadeInDown">
+                <ul class="list-with-title">
+                    <!-- <#list archives as archive> -->
+                        <div class="listing-title">~~~${archive.year?c}</div>
+                        <ul class="listing">
+                            <!-- <#list archive.posts?sort_by("createTime")?reverse as post> -->
+                                <div class="listing-item">
+                                    <div class="listing-post">
+                                        <a href="${post.fullPath!}" title="${post.title!}">${post.title!}</a>
+                                        <div class="post-time">
+                                            <span class="date">${post.createTime?string("yyyy-MM-dd")}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </#list> -->
+                        </ul>
+                    <!-- </#list> -->
+                </ul>
+            </div>
+            <!-- <#if posts.totalPages gt 1> -->
+                <!-- <@paginationTag method="archives" page="${posts.number}" total="${posts.totalPages}" display="3"> -->
+                    <div class="pagination">
+                        <ul class="clearfix">
+                            <!-- <#if pagination.hasPrev> -->
+                                <li class="pre pagbuttons">
+                                    <a class="btn" role="navigation" href="${pagination.prevPageFullPath!}">上一页</a>
+                                </li>
+                            <!-- </#if> -->
+                            <!-- <#if pagination.hasNext> -->
+                                <li class="next pagbuttons">
+                                    <a class="btn" role="navigation" href="${pagination.nextPageFullPath!}">下一页</a>
+                                </li>
+                            <!-- </#if> -->
+                        </ul>
+                    </div>
+                <!-- </@paginationTag> -->
+            <!-- </#if> -->
+        </div>
+    </div>
+</div>
+
+
+<!-- footer -->
+
+<script type="text/javascript" src="source/js/jquert.min.js"></script>
+<script type="text/javascript">
+    var url = location.href;
+    var urlstatus = false;
+    $(".nav li a").each(function () {
+        if ((url + '/').indexOf($(this).attr('href')) > -1 && $(this).attr('href') != '/') {
+            $(this).addClass('current');
+            urlstatus = true;
+        } else {
+            $(this).removeClass('current');
+        }
+    });
+    if (!urlstatus) {
+        $(".nav li a").eq(0).addClass('current');
+    }
+
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('get', 'https://v1.hitokoto.cn');
+	  xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+              var data = JSON.parse(xhr.responseText);
+              var yiyan = document.getElementById('yiyan');
+              yiyan.innerText = data.hitokoto+"        -「"+data.from+"」";
+          }
+      };
+	  xhr.send();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+# spring 开发环境下的配置
+spring:
+  thymeleaf:
+    cache: false
+    suffix: .html
+#logging:
+#  level: debug
+server:
+  port: 9090
+  servlet:
+    context-path: /
+
+#pageHelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+#mybatis 跟踪日志
+logging:
+  level:
+    com.ch.dao: trace
+#admin:
+#  username: test
+#  password: testopen
+#logging:
+#level:com.ch.dao: trace

@@ -1,6 +1,6 @@
 package com.ch.service.impl;
 
-import com.ch.pojo.Article;
+import com.ch.pojo.entity.Article;
 import com.ch.service.ArticleService;
 import org.springframework.stereotype.Service;
 

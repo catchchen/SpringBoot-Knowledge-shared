@@ -3,4 +3,18 @@
 <mapper namespace="com.ch.dao.UserDao">
 
 
+
+
+    <sql id="userBaseRow">
+        id, create_time, update_time, avatar, email, expire, password, username, nickname, grade
+    </sql>
+
+    <update id="updateUser">
+    update users set 'username' = 'test' where id = 1
+    </update>
+
+    <insert id="insertUser" parameterType="User">
+        insert into users values(NULL, now(), now(), 'avatar', '${email}', 1, '${password}', '${username}', 'nickname', ${grade})
+    </insert>
+
 </mapper>

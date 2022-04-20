@@ -11,9 +11,28 @@ import java.util.List;
  */
 @Data
 public class Sort {
+    /**
+     *    分类id
+     */
+    private Integer id;
+    /**
+     *    分类名称
+     */
 
-    private int sid;// 分类id
-    private String sortName;// 分类名称
-    private List<Integer> arts; //
+    private String name;
 
+    //分类描述
+    private String description;
+    private Integer parentId;
+//    private List<Integer> articles;
+
+    /**
+     *         if (description == null) {
+     *             description = "";
+     *         }
+     *
+     *         if (parentId == null || parentId < 0) {
+     *             parentId = 0;
+     *         }
+     */
 }

@@ -1,0 +1,9 @@
+# 生产模式下的端口
+server:
+  port: 9090
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    com.ch.dao: trace

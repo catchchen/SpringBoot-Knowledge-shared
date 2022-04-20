@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body>
+
+</body>
+
+
+<script>
+    getUserList:function(){
+        $.ajax({
+            type:"post",
+            url:this.api.userListUrl,
+            dateType:"json",
+            contentType : 'application/json',
+            data:this.queryParam,
+            success:function(result){
+                app.userList=result.data.rows;
+                app.pagination.total=result.data.total;
+            },
+            error:function(result){
+            }
+        });
+    }
+</script>
+</html>

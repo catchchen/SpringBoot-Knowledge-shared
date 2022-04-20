@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -6,35 +6,60 @@
 </head>
 
 <!-- Favicon -->
-<link rel="icon" th:href="@{/img/core-img/favicon.ico}">
+<link rel="icon" th:href="@{/img/core-img/favicon.ico}" href="../public/img/core-img/favicon.ico">
 
 <!-- Style CSS -->
-<link rel="stylesheet" th:href="@{/style.css}">
+<link rel="stylesheet" th:href="@{/style.css}" href="../public/style.css">
 <body>
 <!-- Preloader -->
 <div id="preloader">
     <div class="preload-content">
-        <div id="original-load"></div>
     </div>
 </div>
 
-<!-- Subscribe Modal -->
+<!-- Login Modal -->
 <div class="subscribe-newsletter-area">
     <div class="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="modal-body">
-                    <h5 class="title">Subscribe to my newsletter</h5>
-                    <form action="#" class="newsletterForm" method="post">
-                        <input type="email" name="email" id="subscribesForm2" placeholder="Your e-mail here">
-                        <button type="submit" class="btn original-btn">Subscribe</button>
+<!--                    <h5 class="title">Subscribe to my newsletter</h5>-->
+                    <h5 class="title align-content-center">登录: 加入我们</h5>
+                    <form action="/resources/user/login" class="newsletterForm" method="post">
+                        <input type="email" name="email" id="subscribesForm2" placeholder="e-mail / username">
+                        <input type="password" name="password" id="googleMap" placeholder="请输入密码..">
+                        <button type="submit" class="btn original-btn">登录</button>
+                        <button type="button"  class="btn original-btn"><a href="register.html">注册</a></button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<!--  -->
+<!--<div class="subscribe-newsletter-area">-->
+<!--    <div class="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">-->
+<!--        <div class="modal-dialog modal-dialog-centered" role="document">-->
+<!--            <div class="modal-content">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--                <div class="modal-body">-->
+<!--                    <h5 class="title">Subscribe to my newsletter</h5>-->
+<!--                    <form action="user/login" class="newsletterForm" method="post">-->
+<!--                        <input type="email" name="email" id="subscribesForm2" placeholder="Your e-mail or username here">-->
+<!--                        <input type="password" name="password" id="password" placeholder="请输入你密码...">-->
+<!--                        <button type="submit" class="btn original-btn">登录</button>-->
+<!--                        <button type="button" class="btn btn-info"><span>注册</span>|<span>加入我们！</span></button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-- Login Modal -->
 
 <!-- ##### Header Area Start ##### -->
 <header class="header-area">
@@ -49,10 +74,10 @@
                         <div id="breakingNewsTicker" class="ticker">
                             <ul>
                                 <li><a href="#">Hello World!</a></li>
-                                <li><a href="#">Hello Universe!</a></li>
-                                <li><a href="#">Hello Original!</a></li>
-                                <li><a href="#">Hello Earth!</a></li>
-                                <li><a href="#">Hello Colorlib!</a></li>
+                                <li><a href="#">Hello!</a></li>
+                                <li><a href="#">你在干嘛呢？</a></li>
+                                <li><a href="#">还不快去学习!</a></li>
+                                <li><a href="#">day day up!</a></li>
                             </ul>
                         </div>
                     </div>
@@ -61,23 +86,28 @@
                 <div class="col-12 col-sm-4">
                     <div class="top-social-area">
                         <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                         <a href="#" data-toggle="tooltip" data-placement="bottom" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
                         <a href="#" data-toggle="tooltip" data-placement="bottom" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#" class="btn subscribe-btn" data-toggle="modal" data-target="#subsModal"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a th:href="@{about-us.html}" href="pages/about-us.html" th:text="${username}">还未登录</a>
+                        <img th:src="@{avatar}" src="//cn.gravatar.com/avatar/01dd5503de8765d3dc92197bdeeb8dd5?s=256&d=mm" alt="pic">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Logo Area -->
+    <!-- rink Area -->
     <div class="logo-area text-center">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
-                    <a href="index.html" class="original-logo"><img src="img/core-img/" alt=""></a>
+                    <ul class="list-inline-item">
+                        <li>1.catch - chenkaiqi</li>
+                        <li>2.liu - liumengx</li>
+                        <li>3.test - test@test.com</li>
+                    </ul>
+<!--                    <a th:href="@{index.html}" href="./index.html" class="original-logo"><img src="img/core-img/" alt=""></a>-->
                 </div>
             </div>
         </div>
@@ -92,7 +122,7 @@
 
                     <!-- Subscribe btn -->
                     <div class="subscribe-btn">
-                        <a href="#" class="btn subscribe-btn" data-toggle="modal" data-target="#subsModal">Subscribe</a>
+<!--                        <a href="#" class="btn subscribe-btn" data-toggle="modal" data-target="#subsModal">Subscribe</a>-->
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -572,7 +602,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="insta-title">
-                    <h5>Follow us @ Instagram</h5>
+                    <h5>Join us @ Instagram</h5>
                 </div>
             </div>
         </div>
@@ -698,17 +728,23 @@
 
 </footer>
 <!-- ##### Footer Area End ##### -->
+<script>
+
+    // $.ajax()
+
+</script>
+
 
 <!-- jQuery (Necessary for All JavaScript Plugins) -->
-<script th:src="@{/js/jquery/jquery-2.2.4.min.js}"></script>
+<script th:src="@{/js/jquery/jquery-2.2.4.min.js}" src="../public/js/jquery/jquery-2.2.4.min.js"></script>
 <!-- Popper js -->
-<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/popper.min.js}" src="../public/js/popper.min.js"></script>
 <!-- Bootstrap js -->
-<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}" src="../public/js/bootstrap.min.js"></script>
 <!-- Plugins js -->
-<script th:src="@{/js/plugins.js}"></script>
+<script th:src="@{/js/plugins.js}" src="../public/js/plugins.js"></script>
 <!-- Active js -->
-<script th:src="@{/js/active.js}"></script>
+<script th:src="@{/js/active.js}" src="../public/js/active.js"></script>
 
 </body>
 </html>

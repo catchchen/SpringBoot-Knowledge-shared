@@ -1,0 +1,22 @@
+# spring 开发环境下的配置
+spring:
+  devtools:
+    restart:
+      eanbled: true
+  thymeleaf:
+    cache: false
+    suffix: .html
+#logging:
+#  level: debug
+server:
+  port: 9090
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    com.ch.dao: trace
+
+#admin:
+#  username: test
+#  password: testopen

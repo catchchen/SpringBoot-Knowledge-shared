@@ -1,54 +1,20 @@
 package com.ch.common;
 
+import lombok.Builder;
+import lombok.Data;
+
 /**
  * @author chenk
  * @date 2022/3/2 21:56
  * @description
  */
+@Data
+@Builder
 public class Result<T> {
-
-    private String status; // 响应状态码
-
+    // 响应状态码
+    private int status;
+    // 响应信息
     private String msg;
-
-    private T data; // 查询结果
-
-    public Result setStatus(String status) {
-        this.status = status;
-        return this;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public Result setMsg(String msg) {
-        this.msg = msg;
-        return this;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public Result setData(T data) {
-        this.data = data;
-        return this;
-    }
-
-    /**
-     * request success 响应结果
-     * @return
-     */
-    public static Result success(){
-        return new Result().setStatus("SUCCESS_CODE");
-    }
-
-    /**
-     * request failure 的结果
-     * @return
-     */
-    public static Result failure(){
-        return new Result().setStatus("FAILURE_CODE");
-    }
+    // 查询结果
+    private T data;
 }

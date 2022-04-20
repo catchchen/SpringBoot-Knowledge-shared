@@ -1,6 +1,7 @@
 package com.ch.service;
 
-import com.ch.pojo.User;
+import com.ch.pojo.entity.User;
+import com.ch.pojo.params.UserLoginParam;
 
 import java.util.List;
 
@@ -11,24 +12,26 @@ import java.util.List;
  */
 public interface UserService {
     // 通过账号和密码查询用户
-    User findUser(String username, String password);
+    User userLogin(UserLoginParam user);
 
-    List getUserlist();
+    // 查询到所有用户
+    List<User> getUsers();
 
-    List getUserlist723();
+    // 通过uid拿到用户
+    User getUser(Integer uid);
 
-    User getUser(String userid);
+    // 数据库中添加用户
 
-    int update(User user);
+    int addUser(User user);
 
+    // 用户更新操作
+    int changeUserInfo(User user);
 
-//	public int createCustomer(Customer customer);
+    int removeUser(Integer uid);
+
+//	public
 //
-//	// 通过id查询客户
-//	public Customer getCustomerById(Integer id);
 //	// 更新客户
 //	public int updateCustomer(Customer customer);
 //	// 删除客户
-//	public int deleteCustomer(Integer id);
-//art列表
 }

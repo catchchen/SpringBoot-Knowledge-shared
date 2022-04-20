@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+  <link rel="stylesheet" th:href="@{/style.css}" href="../public/style.css">
+</head>
+<body>
+
+<div class="contact-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Contact Form Area -->
+      <div class="col-12 col-md-10 col-lg-9">
+        <div class="contact-form">
+          <h5>Get in Touch</h5>
+          <!-- Contact Form -->
+          <form action="/resources/user/register" method="post">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="group">
+                  <label>Name</label>
+                  <input type="text" name="username" id="username" required="">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="group">
+                  <label>Email</label>
+                  <input type="email" name="email" id="email" required="">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="group">
+                  <label>password</label>
+                  <input type="password" name="password" id="password-warning" required="">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="group">
+                  <label>Message</label>
+                  <textarea name="message" id="message" required=""></textarea>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn original-btn">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<!-- jQuery (Necessary for All JavaScript Plugins) -->
+<script th:src="@{js/jquery/jquery-2.2.4.min.js}" src="./public/js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script th:src="@{js/popper.min.js}" src="./public/js/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script th:src="@{js/bootstrap.min.js}" src="./public/js/bootstrap.min.js"></script>
+<!-- Plugins js -->
+<script th:src="@{js/plugins.js}" src="./public/js/plugins.js"></script>
+<!-- Active js -->
+<script th:src="@{js/active.js}" src="./public/js/active.js"></script>
+</html>

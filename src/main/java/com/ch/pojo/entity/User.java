@@ -17,7 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    private Integer id; //用户id
+    private long id; //用户id
     private Date createTime;
     private Date updateTIme;
     private String avatar;

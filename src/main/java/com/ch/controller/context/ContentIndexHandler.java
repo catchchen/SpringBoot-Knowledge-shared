@@ -2,8 +2,8 @@ package com.ch.controller.context;
 
 import com.ch.pojo.entity.Article;
 import com.ch.service.ArticleService;
-import com.ch.service.UserService;
-import com.github.pagehelper.PageHelper;
+import com.ch.service.user.UserService;
+//import com.github.pagehelper.PageHelper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -44,9 +44,8 @@ public class ContentIndexHandler {
                 "了解一下Markdown的基本语法知识。");
         log.info("index ---> page");
         articles.add(article);
-map.addAttribute("list",articles);
-
-
+        // 默认添加 的文章
+        map.addAttribute("list",articles);
         return "index";
     }
 

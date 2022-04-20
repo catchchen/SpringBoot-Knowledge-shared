@@ -1,11 +1,10 @@
-package com.ch.controller.context.rest;
+package com.ch.controller.user.rest;
 
 import com.ch.common.Result;
 import com.ch.pojo.entity.User;
 import com.ch.pojo.params.UserLoginParam;
-import com.ch.service.UserService;
+import com.ch.service.user.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -31,21 +30,25 @@ public class UserRestfulController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result<Object> login(@RequestBody UserLoginParam user , HttpSession session) {
         // 通过账号和密码查询用户
-        User login = userService.authenticate(user);
-        if(login == null){
-            return Result.builder()
-                    .msg("输入账号或密码有误")
-                    .status(HttpStatus.OK.value())
-                    .build();
-        }
-        if(login != null){
-//            session.setAttribute("isAdmin",login.getIsAdmin());
-            return Result.builder()
-                    .msg("")
-                    .status(HttpStatus.OK.value())
-                    .build();
-        }
-        throw new RuntimeException();
+//        User login = .authenticate(user);
+//        if(login == null){
+//            return Result.builder()
+//                    .msg("输入账号或密码有误")
+//                    .status(HttpStatus.OK.value())
+//                    .build();
+//        }
+//        if(login != null){
+////            session.setAttribute("isAdmin",login.getIsAdmin());
+//            return Result.builder()
+//                    .msg("")
+//                    .status(HttpStatus.OK.value())
+//                    .build();
+//        }
+//        throw new RuntimeException();
+        return Result.builder()
+                .msg("")
+                .status(HttpStatus.OK.value())
+                .build();
     }
     /**
      * 退出登录

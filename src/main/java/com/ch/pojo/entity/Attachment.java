@@ -2,7 +2,6 @@ package com.ch.pojo.entity;
 
 import com.ch.web.enums.AttachmentType;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 /**
  * @author chenk
@@ -11,7 +10,6 @@ import org.springframework.data.annotation.Id;
  */
 @Data
 public class Attachment {
-    @Id
     private Integer id;
     /**
      *     附件名称

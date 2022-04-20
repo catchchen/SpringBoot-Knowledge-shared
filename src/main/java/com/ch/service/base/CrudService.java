@@ -29,8 +29,7 @@ public interface CrudService<D, E> {
      * @param pageable pageable
      * @return Page
      */
-//    @NonNull
-//    Page<D> listAll(@NonNull Pageable pageable);
+
 
     /**
      * List all by ids
@@ -121,11 +120,6 @@ public interface CrudService<D, E> {
     @NonNull
     @Transactional
     D update(@NonNull D D);
-
-    /**
-     * Flushes all pending changes to the database.
-     */
-    void flush();
 
     /**
      * Updates by Ds

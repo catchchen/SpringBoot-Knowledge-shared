@@ -70,11 +70,6 @@ public class ManageTagServiceImpl implements ManageTagService {
     }
 
     @Override
-    public void flush() {
-
-    }
-
-    @Override
     public List<TagDTO> updateInBatch(Collection<TagDTO> Ds) {
         return null;
     }
@@ -91,21 +86,17 @@ public class ManageTagServiceImpl implements ManageTagService {
 
     @Override
     public void remove(TagDTO D) {
-
     }
 
     @Override
     public void removeInBatch(Collection<Integer> ids) {
-
     }
 
     @Override
     public void removeAll(Collection<TagDTO> Ds) {
-
     }
 
     @Override
     public void removeAll() {
-
     }
 }

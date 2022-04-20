@@ -1,4 +1,4 @@
-package com.ch.service;
+package com.ch.service.user;
 
 import com.ch.pojo.entity.User;
 import com.ch.pojo.params.ResetPasswordParam;
@@ -8,12 +8,9 @@ import org.springframework.lang.NonNull;
 
 import java.util.Optional;
 
-/**
- * @author chenk
- * @date 2022/2/23
- * @description 功能
- */
-public interface UserService {
+public interface AuthenticateService {
+
+
 
     /**
      * Authenticates username password.
@@ -61,12 +58,5 @@ public interface UserService {
 
     User getByEmailOfNonNull(@NonNull String email);
 
-    /**
-     * reset password code
-     * 更新用户密码
-     * @param param param must not be null
-     * @return
-     */
-    boolean resetPassword(@NonNull ResetPasswordParam param);
 
 }

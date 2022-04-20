@@ -1,8 +1,8 @@
 package com.ch.controller.user;
 
-import com.ch.pojo.entity.User;
 import com.ch.pojo.params.UserLoginParam;
-import com.ch.service.UserService;
+import com.ch.service.user.UserService;
+import com.ch.service.user.AuthenticateService;
 import com.ch.web.exception.AlreadyExistsException;
 import com.ch.web.model.dto.UserParam;
 import com.ch.web.model.vo.UserVo;
@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Slf4j
 public class UserMainController {
 
+    private final AuthenticateService authenticateService;
     private final UserService userService;
 
     /**
@@ -42,7 +43,7 @@ public class UserMainController {
         mv.setViewName("/index");
 
         UserVo userVo =
-                BeanUtils.transformFrom(userService.getByEmail("test@test.com"),UserVo.class);
+                BeanUtils.transformFrom(authenticateService.getByEmail("test@test.com"),UserVo.class);
         System.out.println(userVo);
         mv.addObject("user",userVo);
         // 重定向"redirect:/index"
@@ -55,7 +56,7 @@ public class UserMainController {
      * @return
      *
      */
-    @PostMapping("/user-register")
+    @PostMapping("/user/register")
     public String register(UserParam userParams) {
         // 判断前台传过来的用户名是否重复
 //        boolean exists = userService.getByUserName(userParams.getUsername())

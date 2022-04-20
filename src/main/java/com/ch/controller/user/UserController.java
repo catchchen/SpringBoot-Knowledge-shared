@@ -3,16 +3,10 @@ package com.ch.controller.user;
 
 import com.ch.pojo.entity.User;
 import com.ch.pojo.params.ResetPasswordParam;
-import com.ch.pojo.params.UserLoginParam;
-import com.ch.web.model.dto.UserParam;
-import com.ch.service.UserService;
-import com.ch.web.exception.AlreadyExistsException;
-import com.ch.web.model.vo.UserVo;
-import com.ch.web.utils.BeanUtils;
+import com.ch.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 
 /**

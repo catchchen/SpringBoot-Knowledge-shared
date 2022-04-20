@@ -18,7 +18,7 @@ public interface ArticleService {
      */
     List<Article> findArticleList();
 
-    //创建分类
+    // 用户创建文章
     int createArticle(Article art);
     //通过id获取商品分类信息
     Article getArticleById(Integer id);

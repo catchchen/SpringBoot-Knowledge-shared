@@ -5,7 +5,7 @@ package com.ch.service;
  * @date 2022/2/23
  * @description 功能
  */
-public interface SortService {
+public interface CategoryService {
     // 查询客户列表
 //    public String findSortList(Integer page, Integer rows);
 
@@ -19,8 +19,4 @@ public interface SortService {
 //    int updateCate(Article article);
 //    //删除商品分类信息
 //    int deleteCate(Integer cate_id);
-
-
-
-
 }

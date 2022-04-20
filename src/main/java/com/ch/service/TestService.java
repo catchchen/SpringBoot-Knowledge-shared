@@ -72,17 +72,6 @@ public interface TestService {
      */
     //
     void setPassword(@NonNull User user,@NonNull String password);
-
-    /**
-     * 更新用户密码
-     * @param oldPassword
-     * @param newPassword
-     * @param uid
-     * @return
-     */
-    @NonNull
-    User updatePassword(@NonNull String oldPassword,@NonNull String newPassword, @NonNull Integer uid);
-
     //Assert.hasText(oldPassword, "Old password must not be blank");        Assert.hasText(newPassword, "New password must not be blank");
     // Assert.notNull(userId, "User id must not be blank");
 // if (oldPassword.equals(newPassword)) {            throw new BadRequestException("新密码和旧密码不能相同");        }

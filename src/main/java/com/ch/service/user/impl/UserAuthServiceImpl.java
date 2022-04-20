@@ -4,6 +4,7 @@ import com.ch.pojo.entity.User;
 import com.ch.pojo.params.UserLoginParam;
 import com.ch.security.AuthToken;
 import com.ch.service.user.AuthenticateService;
+import com.ch.web.exception.AlreadyExistsException;
 import org.springframework.util.Assert;
 
 import java.util.Optional;
@@ -69,6 +70,6 @@ public class UserAuthServiceImpl implements AuthenticateService {
 
     @Override
     public User getByEmailOfNonNull(String email) {
-        return null;
+        return getByEmail().orElseThrow(throw new AlreadyExistsException("用户已经存在"));
     }
 }

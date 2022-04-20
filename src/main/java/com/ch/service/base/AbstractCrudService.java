@@ -62,10 +62,6 @@ public class AbstractCrudService implements CrudService {
         return null;
     }
 
-    @Override
-    public void flush() {
-
-    }
 
     @Override
     public List updateInBatch(Collection Ds) {

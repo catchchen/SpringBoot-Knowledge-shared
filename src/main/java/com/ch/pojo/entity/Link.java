@@ -11,12 +11,12 @@ public class Link {
     private Integer id;
 
     private String name;
-
+//
     private String url;
 
     private String logo;
 
     private String description;
-// sort 分类
+
     private Integer priority;
 }

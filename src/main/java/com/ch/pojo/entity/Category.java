@@ -10,7 +10,7 @@ import java.util.List;
  * @description
  */
 @Data
-public class Sort {
+public class Category {
     /**
      *    分类id
      */

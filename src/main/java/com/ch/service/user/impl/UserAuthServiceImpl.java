@@ -2,7 +2,6 @@ package com.ch.service.user.impl;
 
 import cn.hutool.core.lang.Validator;
 import cn.hutool.crypto.digest.BCrypt;
-import com.ch.common.Constants;
 import com.ch.pojo.entity.User;
 import com.ch.pojo.params.UserLoginParam;
 import com.ch.security.AuthToken;
@@ -110,7 +109,7 @@ public class UserAuthServiceImpl implements AuthenticateService {
     public void setPassword(User user, String plainPassword) {
         Assert.notNull(user, "User must not be null");
         Assert.hasText(plainPassword, "Plain password must not be blank");
-
+        // 加盐加密
         user.setPassword(BCrypt.hashpw(plainPassword, BCrypt.gensalt()));
     }
 }

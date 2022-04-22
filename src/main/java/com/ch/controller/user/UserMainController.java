@@ -24,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserMainController {
 
     private final AuthenticateService authenticateService;
-//    private final UserService userService;
+    private final UserService userService;
 
     /**
      * 用户登录

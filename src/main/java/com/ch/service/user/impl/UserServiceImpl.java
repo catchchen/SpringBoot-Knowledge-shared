@@ -1,17 +1,22 @@
 package com.ch.service.user.impl;
 
+import cn.hutool.crypto.digest.BCrypt;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.ch.dao.UserDao;
 import com.ch.pojo.entity.User;
 
 import com.ch.pojo.params.ResetPasswordParam;
 import com.ch.pojo.params.UserLoginParam;
+import com.ch.service.user.AuthenticateService;
 import com.ch.service.user.UserService;
 
 import com.ch.web.exception.BadRequestException;
+import com.ch.web.model.dto.UserParam;
 import com.ch.web.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -26,29 +31,52 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
-
+    private final AuthenticateService authenticateService;
     @Override
-    public User userLogin(UserLoginParam user) {
-        return null;
-    }
-
-    @Override
-    public List<User> getUsers() {
-        return null;
-    }
-
-    @Override
-    public User getUser(Integer uid) {
+    public User getById(Integer uid) {
         return userDao.selectById(uid);
     }
 
     @Override
-    public int addUser(User user) {
-        return 0;
+    public User getByEmail(String email) {
+        return authenticateService.getByEmailOfNonNull(email);
     }
 
     @Override
-    public int changeUserInfo(User user) {
+    public User createBy(UserParam registerParam) {
+        return null;
+    }
+
+    @Override
+    public int updatePassword(String oldPassword, String newPassword, Integer userId) {
+//        User user = BeanUtils.transformFrom(param, User.class);
+//    转化DTO
+        Assert.hasText(oldPassword, "Old password must not be blank");
+        Assert.hasText(newPassword, "New password must not be blank");
+        Assert.notNull(userId, "User id must not be blank");
+
+        if (oldPassword.equals(newPassword)) {
+            throw new BadRequestException("新密码和旧密码不能相同");
+        }
+
+        // Get the user
+        User user = getById(userId);
+
+        // Check the user old password
+        if (!BCrypt.checkpw(oldPassword, user.getPassword())) {
+            throw new BadRequestException("旧密码错误").setErrorData(oldPassword);
+        }
+
+        // Set new password
+        authenticateService.setPassword(user, newPassword);
+
+        // Update this user
+        int update = userDao.updateById(user);
+
+        return update;
+    }
+
+    public int create(User user) {
         return 0;
     }
 
@@ -57,16 +85,6 @@ public class UserServiceImpl implements UserService {
         return 0;
     }
 
-    @Override
-    public boolean resetPassword(ResetPasswordParam param) {
-        User user = BeanUtils.transformFrom(param, User.class);
-//        int i = userDao.updateUser(user);
-        if( 1> 0){
-            return true;
-        }else{
-            throw new BadRequestException("修改失败");
-        }
-    }
 
 
 }

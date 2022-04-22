@@ -12,14 +12,22 @@ import java.util.Date;
 @Data
 public class Article {
     private Long id;
-    private long uid; // 所属用户
+    private int uid; // 所属用户
     private String artTitle; //
-    private String context; // 内容
-
+    // 转化 生成的html
+    private String formatContent;
+    private String originalContent;
+    // 页面中展示的概略内容
+    private String summary;
     private Boolean isPrivate;
     private Date createDate; // 日期
     private Date updateDate; // 日期
+    private Date editDate; // 日期
+    // 是否禁止评论
+    private boolean disallowComment;
 
-    private String articlePic; // 照片在服务器中的地址
+    private long like;
 
+    private String picture; // 照片在服务器中的地址
+    private long visits;
 }

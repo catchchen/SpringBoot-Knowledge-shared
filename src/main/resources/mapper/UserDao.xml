@@ -6,7 +6,7 @@
         select * from users;
     </select>
 <!--    返回封装为Map<String,Object> resultType=“map”-->
-    <select id="selectUserByUid" resultType="User">
+    <select id="selectUserByUid">
         select * from user where uid = #{uid}
     </select>
 

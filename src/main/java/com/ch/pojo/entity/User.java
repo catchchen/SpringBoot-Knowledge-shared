@@ -20,6 +20,7 @@ public class User {
     private long id; //用户id
     private Date createTime;
     private Date updateTIme;
+    // 头像地址
     private String avatar;
     private String email;
     private String username;

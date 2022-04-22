@@ -58,5 +58,7 @@ public interface AuthenticateService {
 
     User getByEmailOfNonNull(@NonNull String email);
 
+    boolean passwordMatch(@NonNull User user, @NonNull String plainPassword);
 
+    void setPassword(@NonNull User user, @NonNull String plainPassword);
 }

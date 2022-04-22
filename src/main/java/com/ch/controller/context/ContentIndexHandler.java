@@ -21,7 +21,6 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class ContentIndexHandler {
     private final ArticleService articleService;
-
     private final UserService userService;
 
     /**
@@ -31,14 +30,11 @@ public class ContentIndexHandler {
      */
     @GetMapping
     public String index(ModelMap map){ //  String token
-//        articleService.getArticleById();
-//        userService.getByUserNameOfNonNull()
-//        hot
         ArrayList<Article> articles = new ArrayList<>();
         Article article = new Article();
-        article.setArticlePic("/upload/article/img/1.png");
+        article.setPicture("/upload/article/img/1.png");
         article.setArtTitle("标题");
-        article.setContext("你好！ " +
+        article.setSummary("你好！ " +
                 "这是你第一次使用 **Markdown编辑器** 所展示的欢迎页。" +
                 "如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，" +
                 "了解一下Markdown的基本语法知识。");
@@ -46,6 +42,9 @@ public class ContentIndexHandler {
         articles.add(article);
         // 默认添加 的文章
         map.addAttribute("list",articles);
+
+        map.addAttribute("user", userService.getUser(1));
+
         return "index";
     }
 

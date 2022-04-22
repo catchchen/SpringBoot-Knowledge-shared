@@ -1,6 +1,7 @@
 package com.ch.pojo.entity;
 
 //import com.ch.web.enums.CommentStatus;
+import com.ch.web.enums.CommentStatus;
 import lombok.Data;
 
 /**
@@ -28,7 +29,7 @@ public class ArticleComment {
      * Commentator's ip address.
      */
 
-    private String ipAddress;
+//    private String ipAddress;
 
     /**
      * Commentator's website.
@@ -40,7 +41,7 @@ public class ArticleComment {
      * Gravatar md5
      */
 
-    private String gravatarMd5;
+//    private String gravatarMd5;
 
     /**
      * Comment content.
@@ -51,7 +52,7 @@ public class ArticleComment {
     /**
      * Comment status.
      */
-//    private CommentStatus status;
+    private CommentStatus status;
 
     /**
      * Commentator's userAgent.

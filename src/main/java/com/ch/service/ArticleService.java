@@ -1,6 +1,7 @@
 package com.ch.service;
 
 import com.ch.pojo.entity.Article;
+import com.ch.service.base.CrudService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,8 +11,7 @@ import java.util.List;
  * @date 2022/2/23
  * @description 功能
  */
-@Service
-public interface ArticleService {
+public interface ArticleService extends CrudService<Article, Long> {
     /**
      * 查询返回列表数据
      * @return

@@ -1,5 +1,6 @@
 package com.ch.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ch.pojo.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,21 +15,20 @@ import java.util.Optional;
  * @date 2022/3/2
  * @description 功能
  */
-@Mapper
-public interface UserDao {
+public interface UserDao extends BaseMapper<User> {
 
-    @Select("select * from users where username = #{username}")
-    Optional<User> selectByUsername(@Param("username") String username);
-
-    @Insert("insert into `users` " +
-            "values (null,#{createTime},#{updateTime},null,#{email},null,#{password},#{username},#{nickname},#{sign})")
-    int insertUser(User user);
-
-    List<User> selectUsersSortByGrade();
-
-    User selectUserById(@Param("id") Integer userId);
-
-    User selectUserByUsername(@Param("username") String username);
-
-    int updateUser(User user);
+//    @Select("select * from users where username = #{username}")
+//    Optional<User> selectByUsername(@Param("username") String username);
+//
+//    @Insert("insert into `users` " +
+//            "values (null,#{createTime},#{updateTime},null,#{email},null,#{password},#{username},#{nickname},#{sign})")
+//    int insertUser(User user);
+//
+//    List<User> selectUsersSortByGrade();
+//
+//    User selectUserById(@Param("id") Integer userId);
+//
+//    User selectUserByUsername(@Param("username") String username);
+//
+//    int updateUser(User user);
 }

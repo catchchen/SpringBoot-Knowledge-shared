@@ -19,7 +19,6 @@ public class UserTest {
 //    private String givenName;
     private String description; // 描述自己
     private String email; //用户EMAIL
-    //    private String phone; //用户电话
     private Boolean isForbidden;   //用户是否被禁言禁止发表
 
 }

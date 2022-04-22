@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Integer uid) {
-        return null;
+        return userDao.selectById(uid);
     }
 
     @Override
@@ -60,8 +60,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean resetPassword(ResetPasswordParam param) {
         User user = BeanUtils.transformFrom(param, User.class);
-        int i = userDao.updateUser(user);
-        if(i > 0){
+//        int i = userDao.updateUser(user);
+        if( 1> 0){
             return true;
         }else{
             throw new BadRequestException("修改失败");

@@ -48,11 +48,14 @@
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-12">
-            <ul class="list-inline-item">
-              <li>1.catch - chenkaiqi</li>
-              <li>2.liu - liumengx</li>
-              <li>3.test - test@test.com</li>
-            </ul>
+            <ol class="list-inline-item">
+              <li th:each="user,stat:${users}">
+<!--                th:text="${user.username}"-->
+                <div>
+                  <span th:text="${stat.count}"></span>[[${user.username}]]<span>---</span><span>[[${user.email}]]-[[${user.grade}]]</span>
+                </div>
+              </li>
+            </ol>
             <!--                    <a th:href="@{index.html}" href="./index.html" class="original-logo"><img src="img/core-img/" alt=""></a>-->
           </div>
         </div>

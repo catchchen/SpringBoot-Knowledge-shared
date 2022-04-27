@@ -1,5 +1,6 @@
 package com.ch.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,10 +17,11 @@ import java.util.Date;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@TableName("users")
 public class User {
-    private long id; //用户id
+    private int id; //用户id
     private Date createTime;
-    private Date updateTIme;
+    private Date updateTime;
     // 头像地址
     private String avatar;
     private String email;

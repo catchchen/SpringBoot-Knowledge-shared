@@ -1,6 +1,8 @@
 package com.ch.controller.context;
 
 import com.ch.dao.UserDao;
+import com.ch.pojo.entity.Article;
+import com.ch.pojo.entity.User;
 import com.ch.service.ArticleService;
 import com.ch.service.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,8 +25,8 @@ public class ContentSearchController {
                                     @RequestParam(value = "pageSize",defaultValue = "5") Integer pageSize,
                                     @PathVariable(value = "keyword",required = false) String keyword){
         ModelAndView mav = new ModelAndView();
-
-        mav.addObject("user", userService.getUser(1));
+//userService.getUser(1)
+        mav.addObject("content", new Article());
         mav.setViewName("context/home");
 
         return mav;

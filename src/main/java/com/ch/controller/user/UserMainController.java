@@ -26,16 +26,21 @@ public class UserMainController {
     private final AuthenticateService authenticateService;
     private final UserService userService;
 
+    @CrossOrigin
+    @GetMapping(value = "/user/login")
+    public String test(){
+        return "redirect:http://127.0.0.1:8090/";
+    }
     /**
      * 用户登录
      */
     @PostMapping(value = "/user/login")
-    public ModelAndView login(@RequestBody UserLoginParam userLoginParam) {
+    public String login(@RequestBody UserLoginParam userLoginParam) {
         // 通过账号和密码查询用户
 //        User login = userService.userLogin(user);
 
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("context/home");
+//        mv.setViewName("context/home");
 //        if(true) httpStatus = HttpStatus.OK.value();
 //        else httpStatus = HttpStatus.INTERNAL_SERVER_ERROR.value();
 //        model.addAttribute("username",user.getUsername());
@@ -43,14 +48,12 @@ public class UserMainController {
 //        session.setAttribute("admin",getIsAdmin());
 
 
-
-
 //        UserVo userVo =
 //                BeanUtils.transformFrom(authenticateService.getByEmail("test@test.com"),UserVo.class);
 
-        mv.setViewName("redirect:/index");
+//        mv.setViewName();
         // 重定向
-        return mv;
+        return "redirect:/http://127.0.0.1:8090/";
     }
 
     /**

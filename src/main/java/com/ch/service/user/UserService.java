@@ -1,5 +1,6 @@
 package com.ch.service.user;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.ch.pojo.entity.User;
 import com.ch.pojo.params.ResetPasswordParam;
 import com.ch.pojo.params.UserLoginParam;
@@ -16,7 +17,7 @@ import java.util.Optional;
  * @description 功能
  */
 
-public interface UserService {
+public interface UserService extends IService<User> {
 
     // 通过uid拿到用户
     User getById(Integer uid);

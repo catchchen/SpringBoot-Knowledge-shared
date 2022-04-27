@@ -55,7 +55,6 @@ public class UserAuthServiceImpl implements AuthenticateService {
         //利用BCrypt加密算法,验证输入密码和数据库中的密码是否相同
         if (!passwordMatch(user, userLogin.getPassword())) {
             // If the password is mismatch
-
             throw new BadRequestException(mismatchTip);
         }
 
@@ -67,10 +66,10 @@ public class UserAuthServiceImpl implements AuthenticateService {
         return null;
     }
 
-    @Override
-    public void clearToken() {
-
-    }
+//    @Override
+//    public void clearToken() {
+//
+//    }
 
     @Override
     public AuthToken refreshToken(String refreshToken) {

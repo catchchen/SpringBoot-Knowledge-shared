@@ -46,7 +46,6 @@ public class HelloController {
     @GetMapping("/redis/get/{key}")
     public Object redis(@PathVariable String key){
         ArrayList<Object> objects = new ArrayList<>();
-
         return "";
     }
 }

@@ -2,10 +2,10 @@ package com.ch.service.user.impl;
 
 import cn.hutool.crypto.digest.BCrypt;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ch.dao.UserDao;
 import com.ch.pojo.entity.User;
 
-import com.ch.pojo.params.ResetPasswordParam;
 import com.ch.pojo.params.UserLoginParam;
 import com.ch.service.user.AuthenticateService;
 import com.ch.service.user.UserService;
@@ -28,7 +28,7 @@ import java.util.List;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserDao,User> implements UserService {
 
     private final UserDao userDao;
     private final AuthenticateService authenticateService;
@@ -76,9 +76,9 @@ public class UserServiceImpl implements UserService {
         return update;
     }
 
-    public int create(User user) {
-        return 0;
-    }
+//    public int create(User user) {
+//        return 0;
+//    }
 
     @Override
     public int removeUser(Integer uid) {

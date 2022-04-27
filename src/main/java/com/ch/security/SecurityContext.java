@@ -2,7 +2,7 @@ package com.ch.security;
 
 import org.springframework.lang.Nullable;
 
-public interface SecurityContext001 {
+public interface SecurityContext {
 
     /**
      * Gets the currently authenticated principal.

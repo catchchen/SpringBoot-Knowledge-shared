@@ -1,6 +1,7 @@
 package com.ch.controller.context;
 
 import com.ch.pojo.entity.Article;
+import com.ch.pojo.entity.User;
 import com.ch.service.ArticleService;
 import com.ch.service.user.UserService;
 //import com.github.pagehelper.PageHelper;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -20,6 +24,7 @@ import java.util.ArrayList;
 @RequestMapping
 @RequiredArgsConstructor
 public class ContentIndexHandler {
+
     private final ArticleService articleService;
     private final UserService userService;
 
@@ -42,9 +47,12 @@ public class ContentIndexHandler {
         articles.add(article);
         // 默认添加 的文章
         map.addAttribute("list",articles);
-
-        map.addAttribute("user", userService.getUser(1));
-
+//userService.getUser(1)
+        List<User> list = userService.list();
+        // 通过 Grade排序 显示用户排名
+        map.addAttribute("users",list.stream()
+                .sorted(Comparator.comparingLong(User::getGrade).reversed())
+                .collect(Collectors.toList()));
         return "index";
     }
 
@@ -57,7 +65,6 @@ public class ContentIndexHandler {
         // 过滤器 实现token到 的转换
         // 用户信息add进去
 //        PageHelper.startPage()
-
         model.addAttribute("avr");
         articleService.findArticleList();
         return "index";

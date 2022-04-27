@@ -1,7 +1,6 @@
 package com.ch.service.user;
 
 import com.ch.pojo.entity.User;
-import com.ch.pojo.params.ResetPasswordParam;
 import com.ch.pojo.params.UserLoginParam;
 import com.ch.security.AuthToken;
 import org.springframework.lang.NonNull;
@@ -30,11 +29,11 @@ public interface AuthenticateService {
     @NonNull
     AuthToken authUsernameCheck(@NonNull UserLoginParam loginParam);
 
-    /**
-     * Clears authentication.
-     * 退出登录
-     */
-    void clearToken();
+//    /**
+//     * Clears authentication.
+//     * 退出登录
+//     */
+//    void clearToken();
 
     /**
      * Refreshes token.

@@ -1,10 +1,10 @@
 package com.ch.service.impl;
 
 
-import com.ch.service.SortService;
+import com.ch.service.CategoryService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+//import java.util.List;
 
 /**
  * @author chenk
@@ -12,5 +12,5 @@ import java.util.List;
  * @description
  */
 @Service
-public class SortServiceImpl implements SortService {
+public class CategoryServiceImpl implements CategoryService {
 }

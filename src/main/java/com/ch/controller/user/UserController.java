@@ -24,9 +24,9 @@ public class UserController {
     /**
      * 通过id获取用户信息
      */
-    @RequestMapping("/user/get/{id}")
+    @RequestMapping("/user/{id}")
     @ResponseBody
-    public User getUserById(@PathVariable Integer uid) {
+    public User getUserById(@PathVariable("id") Integer uid) {
 // System.out.println("=="+userid);
         // User user = userService.
 //        return userService.getUser(uid);
@@ -38,13 +38,14 @@ public class UserController {
      * 用户信息
      */
     @RequestMapping(value = "/User")
-//@ResponseBody
     public String userUpdate(ResetPasswordParam restPassword) {
         //System.out.println("====UserControll"+user);
-        boolean b = userService.resetPassword(restPassword);
+        String password = restPassword.getPassword();
+        String oldPassword = restPassword.getOldPassword();
+        int b = userService.updatePassword(oldPassword, password,1);
         System.out.println();
-        if(b){
-            return "redirect:/";// 重定向 到
+        if(b>0){
+            return "redirect:500";// 重定向 到bad request
         }else{
             return "FAIL"; // 修改失败的页面 点击重定向 到
         }

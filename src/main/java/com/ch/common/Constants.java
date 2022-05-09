@@ -9,5 +9,4 @@ public class Constants {
     public static final String MISS_MATCH_TIP = "用户名或者密码不正确";
     public static final String DEFAULT_ERROR_PATH = "common/error/error";
 
-
 }

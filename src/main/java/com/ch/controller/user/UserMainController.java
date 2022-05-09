@@ -65,13 +65,16 @@ public class UserMainController {
     @PostMapping("/user/register")
     public String register(UserParam userParams) {
         // 判断前台传过来的用户名是否重复
-//        boolean exists = userService.getByUserName(userParams.getUsername())
-//        .orElseThrow()()->throw new AlreadyExistsException("用户名已经存在"));
-        if(true){
-            throw new AlreadyExistsException("用户名已经存在");
-        }
-        log.info(userParams.convertTo().getUsername()+"密码:"+userParams.convertTo().getPassword());
-
+        User exists = authenticateService
+                .getByUserName(userParams.getUsername())
+                .orElseThrow(()-> new AlreadyExistsException("用户名已经存在"));
+//        if(exists != null){
+//            throw new AlreadyExistsException("用户名已经存在");
+//        }
+        log.info("用户{}注册,邮箱:{}",userParams.getUsername(),userParams.getEmail());
+        User user = userParams.convertTo(User.class);
+//        userService.addUser(user);
+        return "redirect:/index";
 //        userService.(userParams.convertTo());
 
 
@@ -81,7 +84,7 @@ public class UserMainController {
         // BAD_REQUEST
 
 
-        return "redirect:/index";
+
     }
 
     /**

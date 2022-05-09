@@ -1,4 +1,5 @@
 package com.ch.web.model.dto;
+import com.ch.pojo.entity.User;
 import com.ch.web.utils.BeanUtils;
 import com.ch.web.utils.ReflectionUtils;
 import org.springframework.lang.Nullable;
@@ -15,9 +16,10 @@ public interface InputConverter<D> {
      * Convert to Domain.(shallow)
      *
      * @return new Domain with same value(not null)
+     * @param userClass
      */
     @SuppressWarnings("unchecked")
-    default D convertTo() {
+    default D convertTo(Class<User> userClass) {
         // Get parameterized type
         ParameterizedType currentType = parameterizedType();
 

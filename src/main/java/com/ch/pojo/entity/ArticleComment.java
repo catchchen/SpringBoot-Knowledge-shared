@@ -41,7 +41,7 @@ public class ArticleComment {
      * Gravatar md5
      */
 
-//    private String gravatarMd5;
+   private String gravatar;
 
     /**
      * Comment content.

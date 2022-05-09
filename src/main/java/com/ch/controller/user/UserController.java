@@ -55,7 +55,7 @@ public class UserController {
      * 修改用户信息
      */
 
-//    @RequestMapping(value = "/user/userUpdate.action")
+//    @RequestMapping(value = "/user/userUpdate")
 //    public String userUpdate(User user) {
 //
 //        //System.out.println("====UserControll"+user);

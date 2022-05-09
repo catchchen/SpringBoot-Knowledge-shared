@@ -17,8 +17,8 @@ import java.util.Optional;
  */
 public interface UserDao extends BaseMapper<User> {
 
-//    @Select("select * from users where username = #{username}")
-//    Optional<User> selectByUsername(@Param("username") String username);
+    @Select("select * from users where username = #{username}")
+    Optional<User> selectByUsername(@Param("username") String username);
 //
 //    @Insert("insert into `users` " +
 //            "values (null,#{createTime},#{updateTime},null,#{email},null,#{password},#{username},#{nickname},#{sign})")

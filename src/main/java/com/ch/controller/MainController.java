@@ -17,7 +17,7 @@ public class MainController {
      * Index redirect uri.
      */
     private static final String INDEX_REDIRECT_URI = "user/index.html/#login";
-    private static final String ADMIN_REDIRECT_URI = "admin/index.html/#login";
+    private static final String ADMIN_REDIRECT_URI = "admin/index.html";
     @GetMapping("login")
     public void login(HttpServletResponse response) throws IOException {
         response.sendRedirect(INDEX_REDIRECT_URI);
@@ -26,5 +26,4 @@ public class MainController {
     public void admin(HttpServletResponse response) throws IOException {
         response.sendRedirect(ADMIN_REDIRECT_URI);
     }
-
 }

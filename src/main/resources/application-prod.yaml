@@ -3,6 +3,7 @@ server:
   servlet:
     context-path: /ch
 
+# pageHelper 配置
 pagehelper:
   helper-dialect: mysql
   reasonable: true

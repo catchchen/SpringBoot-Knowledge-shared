@@ -48,7 +48,7 @@ dependencies {
 //	implementation 'tk.mybatis:mapper:4.1.5'
 
 	// markdown 转换依赖
-	implementation "com.vladsch.flexmark:flexmark:"
+//	implementation "com.vladsch.flexmark:flexmark:"
 	implementation "com.vladsch.flexmark:flexmark-ext-attributes:$flexmarkVersion"
 	implementation "com.vladsch.flexmark:flexmark-ext-autolink:$flexmarkVersion"
 	implementation "com.vladsch.flexmark:flexmark-ext-emoji:$flexmarkVersion"

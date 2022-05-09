@@ -11,11 +11,11 @@ server:
     context-path: /
 
 #pageHelper
-pagehelper:
-  helper-dialect: mysql
-  reasonable: true
-  support-methods-arguments: true
-  params: count=countSql
+#pagehelper:
+#  helper-dialect: mysql
+#  reasonable: true
+#  support-methods-arguments: true
+#  params: count=countSql
 
 #mybatis 跟踪日志
 logging:

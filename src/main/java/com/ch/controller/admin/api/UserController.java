@@ -1,4 +1,4 @@
-package com.ch.controller.user;
+package com.ch.controller.admin.api;
 
 
 import com.ch.pojo.entity.User;

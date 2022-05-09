@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  * User output dto.
- * 用户传输对象
+ * 用户传输对象 跨表数据
  */
 @Data
 public class UserParam implements InputConverter<User>{

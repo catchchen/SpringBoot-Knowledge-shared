@@ -1,5 +1,6 @@
 package com.ch.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,24 +11,37 @@ import java.util.Date;
  * @description
  */
 @Data
+@TableName("posts")
 public class Article {
-    private Long id;
-    private int uid; // 所属用户
-    private String artTitle; //
+    private int id;
+    /**
+     * 访问的链接
+     */
+    private String slug;
+    private int type;
     // 转化 生成的html
     private String formatContent;
+    // 文章 源
     private String originalContent;
-    // 页面中展示的概略内容
     private String summary;
-    private Boolean isPrivate;
-    private Date createDate; // 日期
-    private Date updateDate; // 日期
-    private Date editDate; // 日期
-    // 是否禁止评论
-    private boolean disallowComment;
+    // 私有
+//    private Boolean isPrivate;
+    private Date createDate;
+    private Date updateDate;
+    private Date editDate;
+    // 是否禁止评论 default 0
+    private byte disallowComment;
 
+    private int status;
+    private Integer topPriority;
+    /**
+     * 封面缩略图
+     */
+    private String thumbnail;
+    private String title;
+    private String template;
+    private String url;
     private long like;
-
-    private String picture; // 照片在服务器中的地址
     private long visits;
+    private long wordCount;
 }

@@ -1,6 +1,7 @@
 package com.ch.pojo.entity;
 
 //import com.ch.web.enums.CommentStatus;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.ch.web.enums.CommentStatus;
 import lombok.Data;
 
@@ -10,6 +11,7 @@ import lombok.Data;
  * @description 文章评论类
  */
 @Data
+@TableName("comments")
 public class ArticleComment {
     private Long id;
 

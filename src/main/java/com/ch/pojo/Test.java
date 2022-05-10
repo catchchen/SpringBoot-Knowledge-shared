@@ -1,4 +1,4 @@
-package com.ch.pojo.entity;
+package com.ch.pojo;
 
 import lombok.Data;
 

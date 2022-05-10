@@ -27,7 +27,13 @@ public class User {
     private String email;
     private String username;
     private String password;
-    private String nickname;
     private long grade;
+    private String nickname;
+    // 能否发布状态 default 1 true
+    private Boolean expire;
     private String sign;
+    // 能否发言
+    private boolean state;
+    // 额外字段
+    private String attr3;
 }

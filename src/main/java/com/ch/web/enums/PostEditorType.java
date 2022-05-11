@@ -9,7 +9,10 @@ public enum PostEditorType implements ValueEnum{
     /**
      * Rich text editor.
      */
-    RICHTEXT(1);
+    RICH_TEXT(1),
+
+
+    VIDEO(2);
 
     private final Integer value;
 

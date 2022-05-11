@@ -19,7 +19,18 @@ public interface ValueEnum<T> {
         Assert.notNull(enumType, "enum type must not be null");
         Assert.notNull(value, "value must not be null");
         Assert.isTrue(enumType.isEnum(), "type must be an enum type");
-
+        // 类对象的方法
+        /**
+         * getEnumConstants
+         * Returns the elements of this enum class or null if this
+         * Class object does not represent an enum type.
+         *
+         * @return an array containing the values comprising the enum class
+         *     represented by this {@code Class} object in the order they're
+         *     declared, or null if this {@code Class} object does not
+         *     represent an enum type
+         * @since 1.5
+         */
         return Stream.of(enumType.getEnumConstants())
                 .filter(item -> item.getValue().equals(value))
                 .findFirst()

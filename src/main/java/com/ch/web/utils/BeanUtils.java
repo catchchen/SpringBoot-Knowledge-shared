@@ -13,6 +13,9 @@ import java.beans.PropertyDescriptor;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * 用于转换Java Bean
+ */
 public class BeanUtils {
 
     private BeanUtils() {

@@ -7,7 +7,7 @@ public enum PostStatus implements ValueEnum<Integer>{
     PUBLISHED(0),
 
     /**
-     * Draft status.
+     * Draft status 草稿状态.
      */
     DRAFT(1),
 

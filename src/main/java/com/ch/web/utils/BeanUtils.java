@@ -101,7 +101,7 @@ public class BeanUtils {
 
     /**
      * Gets null names set of property.
-     *
+     * 拿到null的属性 set集合名称
      * @param source object data must not be null
      * @return null name set of property
      */

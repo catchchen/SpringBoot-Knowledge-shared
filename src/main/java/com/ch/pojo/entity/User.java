@@ -30,7 +30,7 @@ public class User {
     private long grade;
     private String nickname;
     // 能否发布状态 default 1 true
-    private Boolean expire;
+    private boolean expire;
     private String sign;
     // 能否发言
     private boolean state;

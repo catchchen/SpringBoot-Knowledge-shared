@@ -1,6 +1,6 @@
 package com.ch.pojo.entity;
 
-//import com.ch.web.enums.CommentStatus;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.ch.web.enums.CommentStatus;
 import lombok.Data;
@@ -64,8 +64,7 @@ public class ArticleComment {
     /**
      * Is admin's comment.
      */
-
-    private Boolean isAdmin;
+//    private Boolean isAdmin;
 
     /**
      * Allow notification.

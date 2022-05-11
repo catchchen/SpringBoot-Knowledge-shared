@@ -31,8 +31,9 @@ public class Article {
     private Date editDate;
     // 是否禁止评论 default 0
     private byte disallowComment;
-
+    // 文章状态
     private int status;
+    // 置顶
     private Integer topPriority;
     /**
      * 封面缩略图

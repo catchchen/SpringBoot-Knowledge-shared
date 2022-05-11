@@ -12,7 +12,7 @@ public enum CommentStatus implements ValueEnum<Integer> {
     PUBLISHED(0),
 
     /**
-     * Auditing status.
+     * Auditing status. 需要继续编写的
      */
     AUDITING(1),
 

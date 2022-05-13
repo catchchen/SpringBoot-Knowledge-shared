@@ -37,8 +37,8 @@ public class ContentIndexHandler {
     public String index(ModelMap map){ //  String token
         ArrayList<Article> articles = new ArrayList<>();
         Article article = new Article();
-        article.setPicture("/upload/article/img/1.png");
-        article.setArtTitle("标题");
+        article.setThumbnail("/upload/article/img/1.png");
+        article.setTitle("标题");
         article.setSummary("你好！ " +
                 "这是你第一次使用 **Markdown编辑器** 所展示的欢迎页。" +
                 "如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，" +
@@ -47,11 +47,13 @@ public class ContentIndexHandler {
         articles.add(article);
         // 默认添加 的文章
         map.addAttribute("list",articles);
-//userService.getUser(1)
+        //userService.getUser(1)
+        //
         List<User> list = userService.list();
-        // 通过 Grade排序 显示用户排名
+        // 通过 Grade 分数升序排序 显示用户排名
         map.addAttribute("users",list.stream()
-                .sorted(Comparator.comparingLong(User::getGrade).reversed())
+                .sorted(Comparator.comparingLong(User::getGrade)
+                        .reversed())
                 .collect(Collectors.toList()));
         return "index";
     }

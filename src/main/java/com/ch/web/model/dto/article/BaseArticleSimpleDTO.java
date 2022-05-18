@@ -4,6 +4,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+/**
+ * 用于 index content 展示
+ */
 @Data
 @ToString
 @EqualsAndHashCode(callSuper = true)

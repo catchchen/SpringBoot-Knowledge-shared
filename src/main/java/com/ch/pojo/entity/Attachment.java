@@ -1,5 +1,6 @@
 package com.ch.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.ch.web.enums.AttachmentType;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import lombok.Data;
  * @description
  */
 @Data
+@TableName("attachments")
 public class Attachment {
     private Integer id;
     /**

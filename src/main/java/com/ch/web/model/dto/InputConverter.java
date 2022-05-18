@@ -41,7 +41,7 @@ public interface InputConverter<D> {
     }
 
     /**
-     * 获取参数化类型
+     * 获取  参数化类型
      *
      * @return parameterized type or null
      */

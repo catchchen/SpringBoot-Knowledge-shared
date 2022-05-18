@@ -6,7 +6,7 @@ import lombok.Data;
 public class ArticleVo {
 
     private String title; // 文章标题
-    private String context; // 内容
-    private String pic; // 照片在服务器中的地址
+    private String originalContent; // 内容
+    private String url; // 照片在服务器中的地址
 
 }

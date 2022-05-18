@@ -9,8 +9,6 @@ import java.util.Optional;
 
 public interface AuthenticateService {
 
-
-
     /**
      * Authenticates username password.
      * 认证 用户名和密码
@@ -27,14 +25,13 @@ public interface AuthenticateService {
      * @return AuthToken
      */
     @NonNull
-    AuthToken authUsernameCheck(@NonNull UserLoginParam loginParam);
+    boolean authUsernameCheck(@NonNull UserLoginParam loginParam);
 
 //    /**
 //     * Clears authentication.
 //     * 退出登录
 //     */
 //    void clearToken();
-
     /**
      * Refreshes token.
      * 刷新token
@@ -45,19 +42,19 @@ public interface AuthenticateService {
     AuthToken refreshToken(@NonNull String refreshToken);
 
     /**
-     * get User by Username
+     * 用于注册时候 检测是否 能使用该账号密码
      * @param username
-     * @return Optional User
+     * @return
      */
-    Optional<User> getByUserName(@NonNull String username);
+    User getByUserName(@NonNull String username);
 
-    User getByUserNameOfNonNull(@NonNull String username);
-
-    Optional<User> getByEmail(@NonNull String email);
-
-    User getByEmailOfNonNull(@NonNull String email);
-
+    User getByEmail(@NonNull String email);
+    /**
+     * 密码验证
+     * @param user
+     * @param plainPassword
+     * @return
+     */
     boolean passwordMatch(@NonNull User user, @NonNull String plainPassword);
-
     void setPassword(@NonNull User user, @NonNull String plainPassword);
 }

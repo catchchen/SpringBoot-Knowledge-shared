@@ -2,7 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ch.dao.article.ArticleDao">
 
-<select id="list">
-    select * from article
-</select>
+    <select id="a">
+        select * from posts
+    </select>
+    <select id="b">
+    select * from posts
+    </select>
+    <select id="selectYearArticlePageVo" resultType="com.ch.web.model.vo.ArticleVo">
+        select title,original_content,url from posts where year(create_time) = #{year}
+    </select>
 </mapper>

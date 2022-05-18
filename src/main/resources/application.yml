@@ -30,4 +30,8 @@ mybatis:
     map-underscore-to-camel-case: on
   type-aliases-package: com.ch.pojo.entity
 
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
 # 公共的配置 放在这里

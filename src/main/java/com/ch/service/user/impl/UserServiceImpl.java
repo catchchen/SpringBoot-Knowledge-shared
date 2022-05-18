@@ -1,5 +1,6 @@
 package com.ch.service.user.impl;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.crypto.digest.BCrypt;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,6 +16,8 @@ import com.ch.web.model.dto.UserParam;
 import com.ch.web.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -28,10 +31,10 @@ import java.util.List;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl extends ServiceImpl<UserDao,User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserDao, User>
+        implements UserService {
 
     private final UserDao userDao;
-    private final AuthenticateService authenticateService;
     @Override
     public User getById(Integer uid) {
         return userDao.selectById(uid);
@@ -39,12 +42,13 @@ public class UserServiceImpl extends ServiceImpl<UserDao,User> implements UserSe
 
     @Override
     public User getByEmail(String email) {
-        return authenticateService.getByEmailOfNonNull(email);
+        return null;
     }
 
     @Override
-    public User createBy(UserParam registerParam) {
-        return null;
+    public int createBy(UserParam registerParam) {
+        User user = registerParam.convertTo(User.class);
+        return userDao.insert(user);
     }
 
     @Override
@@ -68,7 +72,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao,User> implements UserSe
         }
 
         // Set new password
-        authenticateService.setPassword(user, newPassword);
+//        .setPassword(user, newPassword);
 
         // Update this user
         int update = userDao.updateById(user);
@@ -80,11 +84,11 @@ public class UserServiceImpl extends ServiceImpl<UserDao,User> implements UserSe
 //        return 0;
 //    }
 
-    @Override
-    public int removeUser(Integer uid) {
-        return 0;
-    }
-
+//    @Override
+//    public int removeUser(Integer uid) {
+//        return 0;
+//    }
+/***********************/
 
 
 }

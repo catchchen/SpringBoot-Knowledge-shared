@@ -1,5 +1,6 @@
 package com.ch.common;
 
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
@@ -9,6 +10,7 @@ import org.springframework.lang.Nullable;
  * @date 2022/3/19 22:47
  * @description
  */
+@Setter
 public class Response<T> {
     private Integer status;
 

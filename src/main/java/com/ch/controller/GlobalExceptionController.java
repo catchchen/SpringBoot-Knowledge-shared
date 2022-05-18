@@ -23,6 +23,8 @@ public class GlobalExceptionController {
         return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-//    @ExceptionHandler(AlreadyExistsException.class)
-//    public  handleRuntimeException
+    @ExceptionHandler(AlreadyExistsException.class)
+    public ResponseEntity handleAlreadyExistsException(AlreadyExistsException aee) {
+        return new ResponseEntity<>(aee.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }

@@ -32,7 +32,7 @@
                         <input type="password" name="password" placeholder="请输入你的密码..">
 <!--                        type="submit"-->
                         <button class="btn original-btn"><a href="user/login">登录</a></button>
-                        <a href="/toReg" class="tn original-btn">注册</a>
+                        <a th:href="@{/register.html}" href="../static/register.html" class="tn original-btn">注册</a>
                     </form>
                 </div>
             </div>
@@ -44,18 +44,17 @@
 <!-- ##### Header  ##### -->
 <div th:replace="fragments/header :: header"></div>
 
-<!-- ##### Rink Area Start ##### -->
+<!-- ##### Rink Area over ##### -->
+<!-- Slides Area 轮播图
 <div class="hero-area">
-    <!-- Hero Slides Area -->
     <div class="hero-slides owl-carousel">
-        <!-- Single Slide -->
         <div class="single-hero-slide bg-img" style="background-image: url(..public/img/bg-img/b2.jpg)">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
                         <div class="slide-content text-center">
                             <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">lifestyle</a>
+                                <a href="#" data-animation="fadeInUp">默认分类</a>
                             </div>
                             <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
                         </div>
@@ -63,9 +62,8 @@
                 </div>
             </div>
         </div>
-        <!-- Single Slide -->
-        <!--style="background-image: url(img/bg-img/b1.jpg);"-->
-        <div class="single-hero-slide bg-img">
+
+        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b1.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
@@ -79,7 +77,6 @@
                 </div>
             </div>
         </div>
-        <!-- Single Slide -->
         <div class="single-hero-slide bg-img" style="background-image: url(../public/img/bg-img/b3.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
@@ -96,7 +93,8 @@
         </div>
     </div>
 </div>
-<!-- ##### Hero Area End ##### -->
+-->
+<!-- ##### 轮播over Area End ##### -->
 
 <!-- ##### Blog Wrapper Start ##### -->
 <div class="blog-wrapper section-padding-100 clearfix">
@@ -106,11 +104,11 @@
             <div class="col-12 col-lg-4">
                 <div class="single-blog-area clearfix mb-100">
                     <!-- Blog Content -->
-                    <div class="single-blog-content">
+                    <div class="single-blog-content" th:each="post : ${posts}">
                         <div class="line"></div>
                         <a href="#" class="post-tag">Lifestyle</a>
-                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
-                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                        <h4><a href="#" class="post-headline"><p th:text="${post.getTitle()}"></p></a></h4>
+                        <p th:text="${post.getSummary()}">Curabitur venenatis efficitur lorem. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus/p>
                         <a href="#" class="btn original-btn">Read More</a>
                     </div>
                 </div>
@@ -121,17 +119,17 @@
                     <img src="img/blog-img/1.jpg" alt="">
                     <!-- Catagory Title -->
                     <div class="catagory-title">
-                        <a href="#">Lifestyle posts</a>
+                        <a href="#">网站使用 入门教程</a>
                     </div>
                 </div>
             </div>
-            <!-- Single Blog Area -->
+            <!-- Single post Area -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-catagory-area clearfix mb-100">
-                    <img src="img/blog-img/2.jpg" alt="">
+                    <img th:src="@{img/blog-img/2.jpg}" alt="">
                     <!-- Catagory Title -->
                     <div class="catagory-title">
-                        <a href="#">latest posts</a>
+                        <a href="#">how to use this posts website</a>
                     </div>
                 </div>
             </div>
@@ -149,7 +147,7 @@
                             <div class="single-blog-thumbnail">
                                 <img src="img/blog-img/3.jpg" alt="">
                                 <div class="post-date">
-                                    <a href="#">12 <span>march</span></a>
+                                    <a href="#">12 <span>Top</span></a>
                                 </div>
                             </div>
                         </div>
@@ -158,11 +156,11 @@
                             <div class="single-blog-content">
                                 <div class="line"></div>
                                 <a href="#" class="post-tag">Lifestyle</a>
-                                <h4><a href="#" class="post-headline">Party people in the house</a></h4>
-                                <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                <h4><a href="#" class="post-headline">people in the world not alone</a></h4>
+                                <p>something.........................</p>
                                 <div class="post-meta">
-                                    <p>By <a href="#">james smith</a></p>
-                                    <p>3 comments</p>
+                                    <p>By <a href="#">some onne</a></p>
+                                    <p>3 comments</p>  <p>99 likes</p>
                                 </div>
                             </div>
                         </div>
@@ -174,9 +172,9 @@
                     <div class="row align-items-center">
                         <div class="col-12 col-md-6">
                             <div class="single-blog-thumbnail">
-                                <img src="img/blog-img/4.jpg" alt="">
+                                <img th:src="@{img/blog-img/future-to-live-better.png}" src="img/blog-img/4.jpg" alt="">
                                 <div class="post-date">
-                                    <a href="#">12 <span>march</span></a>
+                                    <a href="#">1 <span>top</span></a>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +183,7 @@
                             <div class="single-blog-content">
                                 <div class="line"></div>
                                 <a href="#" class="post-tag">Lifestyle</a>
-                                <h4><a href="#" class="post-headline">We love colors in 2018</a></h4>
+                                <h4><a href="#" class="post-headline">Welcome to our </a></h4>
                                 <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
                                 <div class="post-meta">
                                     <p>By <a href="#">james smith</a></p>
@@ -203,7 +201,7 @@
                             <div class="single-blog-thumbnail">
                                 <img src="img/blog-img/7.jpg" alt="">
                                 <div class="post-date">
-                                    <a href="#">10 <span>march</span></a>
+                                    <a href="#">10 <span>Hot</span></a>
                                 </div>
                             </div>
                         </div>
@@ -212,11 +210,11 @@
                             <div class="single-blog-content mt-50">
                                 <div class="line"></div>
                                 <a href="#" class="post-tag">Lifestyle</a>
-                                <h4><a href="#" class="post-headline">10 Tips to organize the perfect party</a></h4>
-                                <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                <h4><a href="#" class="post-headline">成为优秀的Java工程师10个建议</a></h4>
+                                <p>1. .....</p>
                                 <div class="post-meta">
-                                    <p>By <a href="#">james smith</a></p>
-                                    <p>3 comments</p>
+                                    <p>By <a href="#">陈凯麒</a></p>
+                                    <p>3 comments</p> <p>10 likes</p>
                                 </div>
                             </div>
                         </div>
@@ -230,7 +228,7 @@
                             <div class="single-blog-thumbnail">
                                 <img src="img/blog-img/5.jpg" alt="">
                                 <div class="post-date">
-                                    <a href="#">12 <span>march</span></a>
+                                    <a href="#">4 <span>Hot</span></a>
                                 </div>
                             </div>
                         </div>
@@ -238,8 +236,8 @@
                             <!-- Blog Content -->
                             <div class="single-blog-content">
                                 <div class="line"></div>
-                                <a href="#" class="post-tag">Lifestyle</a>
-                                <h4><a href="#" class="post-headline">Party people in the house</a></h4>
+                                <a href="#" class="post-tag">this about yourself</a>
+                                <h4><a href="#" class="post-headline">All people in the word need to share</a></h4>
                                 <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
                                 <div class="post-meta">
                                     <p>By <a href="#">james smith</a></p>
@@ -288,36 +286,37 @@
                 <div class="post-sidebar-area">
 
                     <!-- Widget Area -->
-                    <div class="sidebar-widget-area">
-                        <form action="#" class="search-form">
-                            <input type="search" name="search" id="searchForm" placeholder="Search">
-                            <input type="submit" value="submit">
-                        </form>
-                    </div>
+<!--                    <div class="sidebar-widget-area">-->
+<!--                        <form action="#" class="search-form">-->
+<!--                            <input type="search" name="search" id="searchForm" placeholder="Search">-->
+<!--                            <input type="submit" value="submit">-->
+<!--                        </form>-->
+<!--                    </div>-->
 
                     <!-- Widget Area -->
                     <div class="sidebar-widget-area">
-                        <h5 class="title subscribe-title">Subscribe to my newsletter</h5>
+                        <h5 class="title subscribe-title">加入我们</h5>
                         <div class="widget-content">
-                            <form action="#" class="newsletterForm">
                                 <input type="email" name="email" id="subscribesForm" placeholder="Your e-mail here">
-                                <button type="submit" class="btn original-btn">Subscribe</button>
-                            </form>
+                                <a th:href="@{/register.html}" href="../static/register.html"><button class="btn original-btn">注册</button></a>
                         </div>
                     </div>
 
                     <!-- Widget Area -->
                     <div class="sidebar-widget-area">
-                        <h5 class="title">Advertisement</h5>
-                        <a href="#"><img src="img/bg-img/add.gif" alt=""></a>
+                        <h5 class="title">推荐</h5>
+                        <a href="#"><img src="../public/img/" alt=""></a>
                     </div>
 
                     <!-- Widget Area -->
                     <div class="sidebar-widget-area">
                         <h5 class="title">Latest Posts</h5>
-
+                        <ol>
+                            <div th:each="post : ${posts}">
+                                <li th:text="${post.getTitle()}"></li>
+                            </div>
+                        </ol>
                         <div class="widget-content">
-
                             <!-- Single Blog Post -->
                             <div class="single-blog-post d-flex align-items-center widget-post">
                                 <!-- Post Thumbnail -->
@@ -409,6 +408,7 @@
 
 <!-- ##### Footer Area Start ##### -->
 <div th:replace="fragments/footer :: footer"></div>
+
 <script>
     // $.ajax() 访问 一言 接口
     var xhr = new XMLHttpRequest();

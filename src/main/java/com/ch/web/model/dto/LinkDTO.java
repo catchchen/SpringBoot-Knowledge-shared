@@ -6,8 +6,6 @@ import lombok.Data;
 @Data
 public class LinkDTO implements OutputConverter<LinkDTO, Link> {
 
-    private Integer id;
-
     private String name;
 
     private String url;

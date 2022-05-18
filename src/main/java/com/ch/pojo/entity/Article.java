@@ -1,5 +1,7 @@
 package com.ch.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -13,12 +15,13 @@ import java.util.Date;
 @Data
 @TableName("posts")
 public class Article {
-    private int id;
+    @TableId
+    private Integer id;
     /**
      * 访问的链接
      */
     private String slug;
-    private int type;
+    private Integer type;
     // 转化 生成的html
     private String formatContent;
     // 文章 源
@@ -26,9 +29,11 @@ public class Article {
     private String summary;
     // 私有
 //    private Boolean isPrivate;
+    @TableField("create_time")
     private Date createDate;
+    @TableField("update_time")
     private Date updateDate;
-    private Date editDate;
+    private Date editTime;
     // 是否禁止评论 default 0
     private byte disallowComment;
     // 文章状态
@@ -42,7 +47,7 @@ public class Article {
     private String title;
     private String template;
     private String url;
-    private long like;
+    private long likes;
     private long visits;
     private long wordCount;
 }

@@ -1,41 +1,42 @@
 package com.ch.controller.user;
 
-import cn.hutool.core.lang.Validator;
 import com.ch.pojo.entity.User;
-import com.ch.pojo.params.UserLoginParam;
+
 import com.ch.service.user.UserService;
 import com.ch.service.user.AuthenticateService;
 import com.ch.web.exception.AlreadyExistsException;
-import com.ch.web.exception.BadRequestException;
-import com.ch.web.exception.NotFoundException;
+
+import com.ch.web.exception.ServiceException;
 import com.ch.web.model.dto.UserParam;
 import com.ch.web.model.vo.UserVo;
 import com.ch.web.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-@RequiredArgsConstructor
-@Controller
+
 @Slf4j
+@Controller
+@RequestMapping("/user")
+@RequiredArgsConstructor
+
 public class UserMainController {
 
     private final AuthenticateService authenticateService;
     private final UserService userService;
 
-    @CrossOrigin
-    @GetMapping(value = "/user/login")
-    public String test(){
-        return "redirect:http://127.0.0.1:8090/";
-    }
+//    @GetMapping(value = "login")
+//    public String test(){
+//        return "";
+//    }
     /**
      * 用户登录
      */
-    @PostMapping(value = "/user/login")
-    public String login(@RequestBody UserLoginParam userLoginParam) {
+    @CrossOrigin
+    @PostMapping(value = "login")
+    public String login() {
         // 通过账号和密码查询用户
 //        User login = userService.userLogin(user);
 
@@ -46,44 +47,42 @@ public class UserMainController {
 //        model.addAttribute("username",user.getUsername());
 //        model.addAttribute("pic",user.getEmail());
 //        session.setAttribute("admin",getIsAdmin());
-
-
-//        UserVo userVo =
-//                BeanUtils.transformFrom(authenticateService.getByEmail("test@test.com"),UserVo.class);
+        UserVo userVo =
+                BeanUtils.transformFrom(authenticateService.getByEmail("test@test.com"),UserVo.class);
 
 //        mv.setViewName();
         // 重定向
-        return "redirect:/http://127.0.0.1:8090/";
+//        return "";
+        return "redirect:http://localhost:8080/";
     }
-
+    @CrossOrigin
+    @GetMapping("login")
+    public String lo(){
+        return "redirect:http://localhost:8080/";
+    }
     /**
      *
      * @param  userParams 用户注册表单
-     * @return
+     * @return  index 页面
      *
      */
-    @PostMapping("/user/register")
+    @PostMapping("register")
     public String register(UserParam userParams) {
         // 判断前台传过来的用户名是否重复
+        log.info("用户:{}，进入注册",userParams.getUsername());
         User exists = authenticateService
-                .getByUserName(userParams.getUsername())
-                .orElseThrow(()-> new AlreadyExistsException("用户名已经存在"));
-//        if(exists != null){
-//            throw new AlreadyExistsException("用户名已经存在");
-//        }
+                .getByUserName(userParams.getUsername());
+//                .orElseThrow(()-> new AlreadyExistsException("用户名已经存在"));
+        if(exists != null){
+            throw new AlreadyExistsException("用户名已经存在");
+        }
         log.info("用户{}注册,邮箱:{}",userParams.getUsername(),userParams.getEmail());
-        User user = userParams.convertTo(User.class);
-//        userService.addUser(user);
+
+        int i = userService.createBy(userParams);
+        if(i < 0){
+            throw new ServiceException("用户创建失败");
+        }
         return "redirect:/index";
-//        userService.(userParams.convertTo());
-
-
-//        User user = userService.getByEmail("");
-//        System.out.println(user.getEmail()+user.getUsername());
-//        System.out.println(user);
-        // BAD_REQUEST
-
-
 
     }
 

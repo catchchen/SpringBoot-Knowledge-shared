@@ -12,13 +12,12 @@ public class FileNameUtils {
 
     private FileNameUtils() {
     }
-
     /**
      * Gets base name of file name. <br>
      * eg: <br>
      * filename: /home/test/test.txt <br>
      * basename: test
-     *
+     * 获取文件的名称
      * @param filename filename must not be blank
      * @return basename of the given file name
      */
@@ -57,6 +56,7 @@ public class FileNameUtils {
 
     /**
      * Gets extension of the file name. <br>
+     * 获取文件的后缀名
      * <code>
      * eg: <br>
      * filename: /home/test/test.txt <br>

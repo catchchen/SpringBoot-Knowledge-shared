@@ -24,9 +24,8 @@ public class BaseArticleMinimalDTO implements OutputConverter {
 
     private Date editTime;
 
-    private String metaKeywords;
-
-    private String metaDescription;
-
+//    private String metaKeywords;
+//    private String metaDescription;
+//
     private String fullPath;
 }

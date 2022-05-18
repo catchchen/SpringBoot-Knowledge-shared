@@ -1,6 +1,9 @@
 package com.ch.service.admin.impl;
 
 import com.ch.pojo.entity.User;
+import com.ch.pojo.params.ResetPasswordParam;
+import com.ch.pojo.params.UserLoginParam;
+import com.ch.security.AuthToken;
 import com.ch.service.admin.AdminService;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +12,11 @@ import java.util.Optional;
 
 @Service
 public class AdminServiceImpl implements AdminService {
+    @Override
+    public AuthToken authCheck(UserLoginParam loginParam) {
+        return null;
+    }
+
     @Override
     public Optional<User> getByEmail(String email) {
         return Optional.empty();
@@ -22,5 +30,15 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public String getLogFiles(Long lines) {
         return null;
+    }
+
+    @Override
+    public void clearToken() {
+
+    }
+
+    @Override
+    public void sendResetPassword(ResetPasswordParam param) {
+
     }
 }

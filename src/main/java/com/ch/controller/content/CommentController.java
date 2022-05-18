@@ -1,4 +1,4 @@
-package com.ch.controller.context;
+package com.ch.controller.content;
 
 public class CommentController {
 

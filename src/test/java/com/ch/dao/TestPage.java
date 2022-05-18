@@ -3,8 +3,8 @@ package com.ch.dao;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ch.pojo.entity.User;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import javax.annotation.Resource;
 
 /**
  * @author chenk
@@ -13,13 +13,13 @@ import javax.annotation.Resource;
  */
 @SpringBootTest
 public class TestPage {
-    @Resource
-    private UserDao userDao;
+//    @Autowired
+//    private UserDao userDao;
 
     @Test
     public void testPage(){
         Page<User> page = new Page(1,3);
-        userDao.selectPage(page, null);
+//        userDao.selectPage(page, null);
         System.out.println(page.getRecords());
         System.out.println(page.getCurrent());
         System.out.println(page.getTotal());

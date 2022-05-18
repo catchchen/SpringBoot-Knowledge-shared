@@ -1,20 +1,19 @@
-package com.ch.controller.context;
+package com.ch.controller.content;
 
-import com.ch.dao.UserDao;
 import com.ch.pojo.entity.Article;
-import com.ch.pojo.entity.User;
 import com.ch.service.ArticleService;
 import com.ch.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/user")
 public class ContentSearchController {
     private final ArticleService articleService;
     private final UserService userService;

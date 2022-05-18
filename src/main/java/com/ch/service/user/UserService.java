@@ -2,9 +2,6 @@ package com.ch.service.user;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ch.pojo.entity.User;
-import com.ch.pojo.params.ResetPasswordParam;
-import com.ch.pojo.params.UserLoginParam;
-import com.ch.security.AuthToken;
 import com.ch.web.model.dto.UserParam;
 import org.springframework.lang.NonNull;
 
@@ -18,19 +15,12 @@ import java.util.Optional;
  */
 
 public interface UserService extends IService<User> {
-
     // 通过uid拿到用户
     User getById(Integer uid);
     User getByEmail(String email);
-    // 数据库中添加用户
-
-    User createBy(@NonNull UserParam registerParam);
-
-    // 用户更新操作
-
+    // 创建用户
+    int createBy(@NonNull UserParam registerParam);
+    // 更新用户
     int updatePassword(@NonNull String oldPassword,@NonNull String newPassword,@NonNull Integer userId);
-
-    int removeUser(Integer uid);
-
 
 }

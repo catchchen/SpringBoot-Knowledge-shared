@@ -21,10 +21,9 @@ public class JsonUtils {
     private JsonUtils() {
     }
 
-
     /**
      * Creates a default json mapper.
-     *
+     * 创建一个 默认的json mapper
      * @return object mapper
      */
     public static ObjectMapper createDefaultJsonMapper() {

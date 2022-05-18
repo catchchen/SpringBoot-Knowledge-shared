@@ -1,10 +1,11 @@
-package com.ch.controller.context;
+package com.ch.controller.content;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
 import com.ch.pojo.entity.Article;
 import com.ch.pojo.entity.User;
 import com.ch.service.ArticleService;
 import com.ch.service.user.UserService;
-//import com.github.pagehelper.PageHelper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -43,14 +44,15 @@ public class ContentIndexHandler {
                 "这是你第一次使用 **Markdown编辑器** 所展示的欢迎页。" +
                 "如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，" +
                 "了解一下Markdown的基本语法知识。");
-        log.info("index ---> page");
+        log.info("index ---> page website");
         articles.add(article);
-        // 默认添加 的文章
-        map.addAttribute("list",articles);
-        //userService.getUser(1)
-        //
-        List<User> list = userService.list();
+        // 默认添加 的文章 注册的时候进行的
+        map.addAttribute("posts",articles);
+        //get user list
+        List<User> list = userService.list(); //
         // 通过 Grade 分数升序排序 显示用户排名
+        articleService.list();
+//        map.addAttribute("hots", );
         map.addAttribute("users",list.stream()
                 .sorted(Comparator.comparingLong(User::getGrade)
                         .reversed())
@@ -68,7 +70,7 @@ public class ContentIndexHandler {
         // 用户信息add进去
 //        PageHelper.startPage()
         model.addAttribute("avr");
-        articleService.findArticleList();
+//        articleService.findArticleList();
         return "index";
     }
 }

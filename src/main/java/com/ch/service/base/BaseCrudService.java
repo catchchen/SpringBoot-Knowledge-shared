@@ -1,5 +1,6 @@
 package com.ch.service.base;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.ch.web.exception.NotFoundException;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
@@ -10,17 +11,16 @@ import java.util.Optional;
 
 /**
  *  CrudService interface  包含关于crud公用的方法
- * @param <D> Domain 领域模型
+ * @param <Domain> Domain 领域模型
  * @param <E> element 代表这个元素的唯一主键
  */
-public interface CrudService<D, E> {
+public interface BaseCrudService<Domain, E>  {
     /**
      * List All
-     *
      * @return List
      */
     @NonNull
-    List<D> listAll();
+    List<Domain> listAll();
 
 
     /**
@@ -38,7 +38,7 @@ public interface CrudService<D, E> {
      * @return List
      */
     @NonNull
-    List<D> listAllByIds(@Nullable Collection<E> ids);
+    List<Domain> listAllByIds(@Nullable Collection<E> ids);
 
     /**
      * Fetch by id
@@ -47,26 +47,26 @@ public interface CrudService<D, E> {
      * @return Optional
      */
     @NonNull
-    Optional<D> fetchById(@NonNull E id);
+    Optional<Domain> fetchById(@NonNull E id);
 
     /**
      * Get by id
      *
      * @param id id
-     * @return D
+     * @return Domain
      * @throws NotFoundException If the specified id does not exist
      */
     @NonNull
-    D getById(@NonNull E id);
+    Domain getById(@NonNull E id);
 
     /**
-     * Gets D of nullable by id.
+     * Gets Domain of nullable by id.
      *
      * @param id id
-     * @return D
+     * @return Domain
      */
     @Nullable
-    D getByIdOfNullable(@NonNull E id);
+    Domain getByIdOfNullable(@NonNull E id);
 
     /**
      * Exists by id.
@@ -94,71 +94,71 @@ public interface CrudService<D, E> {
     /**
      * save
      *
-     * @param D D
-     * @return D
+     * @param Domain Domain
+     * @return Domain
      */
     @NonNull
     @Transactional
-    D create(@NonNull D D);
+    Domain create(@NonNull Domain Domain);
 
     /**
-     * save by Ds
+     * save by Domains
      *
-     * @param Ds Ds
+     * @param Domains Domains
      * @return List
      */
     @NonNull
     @Transactional
-    List<D> createInBatch(@NonNull Collection<D> Ds);
+    List<Domain> createInBatch(@NonNull Collection<Domain> Domains);
 
     /**
-     * Updates by D
+     * Updates by Domain
      *
-     * @param D D
-     * @return D
+     * @param Domain Domain
+     * @return Domain
      */
     @NonNull
     @Transactional
-    D update(@NonNull D D);
+    Domain update(@NonNull Domain Domain);
 
     /**
-     * Updates by Ds
+     * Updates by Domains
      *
-     * @param Ds Ds
+     * @param Domains Domains
      * @return List
      */
     @NonNull
     @Transactional
-    List<D> updateInBatch(@NonNull Collection<D> Ds);
+    List<Domain> updateInBatch(@NonNull Collection<Domain> Domains);
 
     /**
      * Removes by id
      *
      * @param id id
-     * @return D
+     * @return Domain
      * @throws NotFoundException If the specified id does not exist
      */
     @NonNull
     @Transactional
-    D removeById(@NonNull E id);
+    Domain removeById(@NonNull E id);
 
     /**
      * Removes by id if present.
      *
      * @param id id
-     * @return D
+     * @return Domain
      */
     @Nullable
     @Transactional
-    D removeByIdOfNullable(@NonNull E id);
+    Domain removeByIdOfNullable(@NonNull E id);
 
     /**
-     * Remove by D
+     * Remove by Domain
      *
-     * @param D D
+     * @param Domain Domain
      */
     @Transactional
-    void remove(@NonNull D D);
+    void remove(@NonNull Domain Domain);
 
     /**
      * Remove by ids
@@ -169,12 +169,12 @@ public interface CrudService<D, E> {
     void removeInBatch(@NonNull Collection<E> ids);
 
     /**
-     * Remove all by Ds
+     * Remove all by Domains
      *
-     * @param Ds Ds
+     * @param Domain Domains
      */
     @Transactional
-    void removeAll(@NonNull Collection<D> Ds);
+    void removeAll(@NonNull Collection<Domain> Domain);
 
     /**
      * Remove all

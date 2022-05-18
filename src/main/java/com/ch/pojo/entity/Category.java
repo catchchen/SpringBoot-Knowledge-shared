@@ -1,5 +1,6 @@
 package com.ch.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -16,7 +17,8 @@ public class Category {
     /**
      *    分类id
      */
-    private int id;
+    @TableId
+    private Integer id;
     /**
      *    分类名称
      */

@@ -1,4 +1,4 @@
-package com.ch.controller.context.model;
+package com.ch.controller.content.model;
 
 import org.springframework.stereotype.Component;
 

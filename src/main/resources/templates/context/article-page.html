@@ -179,12 +179,13 @@
         <a target="_blank" href="#">
             <!-- 主题信息 -->
             <span>Designed by </span>
-            <a href="https://www.caicai.me">CaiCai</a>
+            <a href="https://www.catch.me">Catch</a>
             <div class="by_halo">
-                <a href="https://github.com/halo-dev/halo" target="_blank">Proudly published with Halo&#65281;</a>
+                <a href="" target="_blank"> product by neusoft chenkaiqi&#65281;</a>
+                <a href="https://github.com/halo-dev/halo" target="_blank"> ref&#65281;</a>
             </div>
             <div class="footer_text">
-                <@global.footer_info />
+                global.footer_info
             </div>
         </a>
     </div>
@@ -272,7 +273,7 @@
 
 <!-- footer -->
 
-<script type="text/javascript" src="source/js/jquert.min.js"></script>
+<script type="text/javascript" src="source/js/jquery.min.js"></script>
 <script type="text/javascript">
     var url = location.href;
     var urlstatus = false;
@@ -294,7 +295,7 @@
           if (xhr.readyState === 4) {
               var data = JSON.parse(xhr.responseText);
               var yiyan = document.getElementById('yiyan');
-              yiyan.innerText = data.hitokoto+"        -「"+data.from+"」";
+              yiyan.innerText = data.hitokoto+" -「"+data.from+"」";
           }
       };
 	  xhr.send();

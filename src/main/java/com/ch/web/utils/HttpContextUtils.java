@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class HttpContextUtils {
     private HttpContextUtils(){}
-// 获取HttpServletRequest的orgin
+
     public static HttpServletRequest getHttpServletRequest(){
         return ((ServletRequestAttributes) RequestContextHolder
                 .getRequestAttributes()).getRequest();
@@ -22,6 +22,7 @@ public class HttpContextUtils {
             return url.delete(url.length() - request.getRequestURI().length(),url.length())
                     .toString();
     }
+    // 获取HttpServletRequest的origin
     public static String getOrigin(){
             HttpServletRequest request = getHttpServletRequest();
             return request.getHeader("Origin");

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @author chenk
  * @date 2022/2/23 21:30
- * @description 用于用户登录注册的类
+ * @description 用于管理注册的类
  */
 @Slf4j
 @Controller
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user/api")
 
 public class ControllerTest {
-
+//
     private final UserService userService;
 
     /**
@@ -39,7 +39,7 @@ public class ControllerTest {
     /**
      * 用户信息
      */
-    @RequestMapping(value = "/User")
+    @RequestMapping(value = "/user")
     public String userUpdate(ResetPasswordParam restPassword) {
         //System.out.println("====UserControll"+user);
         String password = restPassword.getPassword();

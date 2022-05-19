@@ -6,9 +6,10 @@ import com.ch.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.http.HttpResponse;
 import java.util.List;
-
+/*
+    // 管理员对全部文章的 控制对象
+ */
 @RestController
 @RequestMapping("/api/admin/posts")
 public class ManagePostController {
@@ -26,9 +27,8 @@ public class ManagePostController {
     }
 //    @PutMapping("/")
 //    Response<List<Article>> changePostStatus() {
-//
 //    }
 //    @PostMapping("/")
-//
+//    Response<List<Article>>
 //    @DeleteMapping("")
 

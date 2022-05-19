@@ -44,4 +44,11 @@ public class Response<T> {
     public static <T> Response ok(@Nullable T data){
         return new Response(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), data);
     }
+    public static <T> Response fail(){
+        return new Response(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null);
+    }
+
+    public static <T> Response fail(@Nullable String message){
+        return new Response(HttpStatus.BAD_REQUEST.value(), message, null);
+    }
 }

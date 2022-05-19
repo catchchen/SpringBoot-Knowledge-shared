@@ -17,12 +17,16 @@ server:
 #  support-methods-arguments: true
 #  params: count=countSql
 
+  # 配置thymeleaf
+  thymeleaf:
+    # 关闭thymeleaf缓存
+    cache: false
+    prefix: classpath:/templates/
+
 #mybatis 跟踪日志
 logging:
   level:
     com.ch.dao: trace
-#admin:
-#  username: test
-#  password: testopen
-#logging:
-#level:com.ch.dao: trace
+admin:
+  username: test
+  password: testopen

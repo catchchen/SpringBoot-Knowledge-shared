@@ -3,9 +3,9 @@ spring:
 #    static-path-pattern: /**
   # 配置Mysql数据源
   datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/zxdb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: chenk
+    password: chenk
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   # 配置redis
 #  redis:
@@ -16,11 +16,7 @@ spring:
 #        min-idle: 5
 #        max-idle: 10
 #    connect-timeout: 1000
-  # 配置thymeleaf
-  thymeleaf:
-    # 关闭thymeleaf缓存
-    cache: false
-    prefix: classpath:/templates/
+
   profiles:
     # 开启 开发环境配置
     active: dev
@@ -34,4 +30,4 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
-# 公共的配置 放在这里
+# 多种环境下 公共的配置 放在这里

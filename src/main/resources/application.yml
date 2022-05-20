@@ -16,7 +16,6 @@ spring:
 #        min-idle: 5
 #        max-idle: 10
 #    connect-timeout: 1000
-
   profiles:
     # 开启 开发环境配置
     active: dev

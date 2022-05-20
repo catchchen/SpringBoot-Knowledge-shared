@@ -12,5 +12,4 @@ class ChApplicationTests {
 	void contextLoads() {
 //		ApplicationContext
 	}
-
 }

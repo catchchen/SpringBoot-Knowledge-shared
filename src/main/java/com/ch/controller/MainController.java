@@ -16,12 +16,13 @@ public class MainController {
     /**
      * Index redirect uri.
      */
-    private static final String INDEX_REDIRECT_URI = "user/index.html/#login";
+    private static final String INDEX_REDIRECT_URI = "user/index.html";
     private static final String ADMIN_REDIRECT_URI = "admin/index.html";
     @GetMapping("/user-main")
     public void login(HttpServletResponse response) throws IOException {
         response.sendRedirect(INDEX_REDIRECT_URI);
     }
+
     @GetMapping("admin/login")
     public void admin(HttpServletResponse response) throws IOException {
         response.sendRedirect(ADMIN_REDIRECT_URI);

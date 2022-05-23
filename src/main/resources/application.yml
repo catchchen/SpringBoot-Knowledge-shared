@@ -3,9 +3,9 @@ spring:
 #    static-path-pattern: /**
   # 配置Mysql数据源
   datasource:
-    username: chenk
-    password: chenk
-    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/zxdb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   # 配置redis
 #  redis:
